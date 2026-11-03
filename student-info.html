@@ -10,20 +10,20 @@
         <h1>TTU STUDENT PLANNER</h1>
 
         <hr>
-
-        <table border>
-            <thead>
-                <tr>
-                    <th>    GROUPS    </th>
-                    <th>    MAPS    </th>
-                    <th>    EVENTS  </th>
-                    <th>    SCHEDULE    </th>
-                    <th>    CONNECTIONS </th>
-                    <th>    Login/Sign in   </th>
-                </tr>
-                
-            </thead>
-        </table>
+        <form action="submit" method="post">
+            <table border>
+                <thead>
+                    <tr>
+                        <th>    GROUPS    </th>
+                        <th>    MAPS    </th>
+                        <th>    EVENTS  </th>
+                        <th>    SCHEDULE    </th>
+                        <th>    CONNECTIONS </th>
+                        <th>    Login/Sign in   </th>
+                    </tr>
+                </thead>
+            </table>
+        </form>
     </header>
 
     <hr>
@@ -31,11 +31,37 @@
     <h2>Welcome Username! </h2>
     <h3>Upload profile picture</h3>
 
-    <ul>
-        <li>Major: </li>
-        <li>Year: </li>
-        <li>Clubs: </li>
-    </ul>
+    <form action="submit" method="post">
+        <table>
+            <tr>
+                <td> <label for= "Major">Major: </label> </td>
+                <td> <input type="text" id="major" name="major" placeholder="Enter your major" required> </td>
+            </tr>
+        </table>
+
+        <br>
+
+        <p>choose your year</p>
+        <input type="radio" id="freshman" name="year" value="freshman">
+        <label for="freshman">freshman</label>
+        <input type="radio" id="sophmore" name="year" value="sophmore">
+        <label for="sophmore">sophmore</label>
+        <input type="radio" id="junior" name="year" value="junior">
+        <label for="junior">junior</label>
+        <input type="radio" id="senior" name="year" value="senior">
+        <label for="senior">senior</label>
+
+        <br>
+
+        <label for="clubs">select your clubs</label>
+        <select id="clubs" name="clubs"> 
+            <option value="">choose as many as applies</option>
+            <option value="cs">NSBE</option>
+            <option value="ce">SWE</option>
+            <option value="me">POWER LIFTING</option>
+            <option value="ee">ANIME</option>
+        </select>
+    </form>    
 
     <hr>
 
