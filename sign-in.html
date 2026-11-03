@@ -11,7 +11,6 @@
 
         <hr>
 
-<<<<<<< HEAD
         <table border>
             <thead>
                 <tr>
@@ -22,17 +21,7 @@
                     <th>    CONNECTIONS </th>
                     <th>    Login/Sign in   </th>
                 </tr>
-                
-=======
-        <table>
-            <thead>
-                <tr>    GROUPS    </tr>
-                <tr>    MAPS    </tr>
-                <tr>    EVENTS  </tr>
-                <tr>    SCHEDULE    </tr>
-                <tr>    CONNECTIONS </tr>
-                <tr>    Login/Sign in   </tr>
->>>>>>> 2da1c71e8ce332d291ae67f29c19ad5d45889b95
+
             </thead>
         </table>
     </header>
@@ -42,12 +31,23 @@
     <hr>
     <h2>WELCOME</h2>
     <h3>Sign in</h3>
-    <table>
-        <tc>
-            <th>TTU Mail: </th>
-            <th>Password: </th>
-            <th>Username: </th>
-        </tc>
-    </table>
+
+    <form>
+        <table>
+            <tr>
+                <td> <label for= "username"> Username: </label> </td>
+                <td> <input type="text" id="username" name="username" placeholder="Enter your name" required> </td>
+            </tr>
+
+            <tr>
+                <td> <label for= "email">TTU mail: </label> </td>
+                <td> <input type="email" id="username" name="username" placeholder="Enter your name" required> </td>
+            </tr>
+                
+            <tr>
+                <td> <label for="password"> Password:</label> </td>
+                <td> <input type="password" placeholder="Enter your password" required> </td>
+   
+        </table>
 </body>
 </html>
