@@ -47,12 +47,10 @@ nav a:hover {
 }
 
 /* Texas Tech logo */
-body > img {
+header img {
     width: 150px;
     height: 150px;
     object-fit: contain;
-    display: block;
-    margin: 15px auto;
 }
 
 /* Main content */
@@ -73,7 +71,6 @@ main h2 {
 main h3 {
     font-size: 30px;
     margin-bottom: 15px;
-    text-transform: lowercase;
 }
 
 /* Login form */
@@ -90,7 +87,7 @@ form {
 
 .form-table td {
     padding: 12px 8px;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
     border-bottom: 4px solid red;
 }

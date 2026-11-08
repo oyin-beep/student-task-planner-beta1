@@ -7,8 +7,9 @@
     <title>Login Page</title>
 </head>
 <body>
-    <img src="Texas-Tech-Logo.png" alt="Texas Tech logo" width="150" height="150">
+    
     <header>
+        <img src="Texas-Tech-Logo.png" alt="Texas Tech logo" width="100" height="100">
         <h1>TTU STUDENT PLANNER</h1>
 
         <nav>
@@ -27,15 +28,15 @@
         <h2>WELCOME</h2>
         <h3>Login</h3>
 
-        <form action="student-info.html" method="get">
+        <form action="student-info.html" method="post">
             <table class="form-table">
                 <tr>
                     <td><label for="email">TTU Mail:</label></td>
-                    <td><input type="email" id="email" name="email" placeholder="Enter your TTU email" required></td>
+                    <td><input type="email" id="email" name="email" placeholder="Enter your TTU email" autocomplete="username" required></td>
                 </tr>
                 <tr>
                     <td><label for="password">Password:</label></td>
-                    <td><input type="password" id="password" name="password" placeholder="Enter your password" required></td>
+                    <td><input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required></td>
                 </tr>
             </table>
 
