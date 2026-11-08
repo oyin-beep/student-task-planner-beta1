@@ -17,47 +17,53 @@ body {
 /* HEADER */
 header {
     background-color: #ed0800;
-    color: white;
-    padding: 25px;
-    text-align: center;
-    min-height: 135px;
+    height: 135px;
+    width: 100%;
+    position: relative;
+    padding-top: 10px;
 }
 
-/* TEXAS TECH LOGO */
+/* SMALL LOGO IN TOP-LEFT CORNER */
 header img {
-    display: block;
-    width: 150px;
-    height: 150px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 65px;
+    height: 65px;
     object-fit: contain;
-    margin: 0 auto 10px;
 }
 
-/* HEADER TITLE */
+/* CENTERED WEBSITE TITLE */
 header h1 {
-    font-family: Arial, sans-serif;
-    font-size: 28px;
-    margin-bottom: 20px;
+    color: white;
+    text-align: center;
+    font-family: 'Abel', sans-serif;
+    font-size: 50px;
+    letter-spacing: 2px;
+    margin: 0;
 }
 
-/* NAVIGATION BAR */
+/* NAVIGATION */
 nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
-    padding: 15px 0;
+    height: 65px;
+    width: 100%;
+    margin-top: 5px;
 }
 
 nav a {
     color: white;
     text-decoration: none;
     font-family: Arial, sans-serif;
-    font-size: 15px;
-    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 nav a:hover {
     text-decoration: underline;
+    color: #ffb3b3;
 }
 
 /* MAIN CONTENT */

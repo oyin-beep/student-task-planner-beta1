@@ -22,24 +22,24 @@ header {
     padding-top: 10px;
 }
 
-/* LOGO */
+/* SMALL LOGO IN TOP-LEFT CORNER */
 header img {
     position: absolute;
-    top: 15px;
+    top: 10px;
     left: 20px;
-    width: 100px;
-    height: 100px;
+    width: 65px;
+    height: 65px;
     object-fit: contain;
 }
 
-/* WEBSITE TITLE */
+/* CENTERED WEBSITE TITLE */
 header h1 {
     color: white;
     text-align: center;
     font-family: 'Abel', sans-serif;
     font-size: 50px;
     letter-spacing: 2px;
-    padding-bottom: 10px;
+    margin: 0;
 }
 
 /* NAVIGATION */
@@ -49,6 +49,7 @@ nav {
     align-items: center;
     height: 65px;
     width: 100%;
+    margin-top: 5px;
 }
 
 nav a {
