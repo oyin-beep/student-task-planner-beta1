@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Abel', sans-serif;
+    background-color: white;
+    border: 5px solid black;
+    min-height: 100vh;
+    padding-bottom: 40px;
+}
+
+/* Texas Tech logo */
+body > img:first-child {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    position: absolute;
+    top: 110px;
+    left: 25px;
+}
+
+/* Header */
+header {
+    background-color: #e60000;
+    padding: 25px;
+    text-align: center;
+}
+
+header h1 {
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Navigation bar */
+header table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+
+header th {
+    padding: 15px 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    border: none;
+}
+
+header th a {
+    color: white;
+    text-decoration: none;
+}
+
+header th a:hover {
+    text-decoration: underline;
+}
+
+/* Horizontal lines */
+hr {
+    border: none;
+    height: 2px;
+    background-color: #eeeeee;
+    margin: 15px 0;
+}
+
+/* Welcome heading */
+h2 {
+    font-size: 38px;
+    font-weight: normal;
+    margin: 15px 20px;
+}
+
+h2::first-letter {
+    color: black;
+}
+
+/* Profile picture */
+body > img:nth-of-type(2) {
+    display: block;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 45px 10% 20px;
+}
+
+/* Student information form */
+body > form {
+    margin: 20px 10%;
+    font-size: 20px;
+}
+
+/* Major input */
+input[type="text"] {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #aaa;
+    font-size: 16px;
+    border-radius: 3px;
+}
+
+/* Enter button */
+button {
+    background-color: #e60000;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+button:hover {
+    background-color: #b80000;
+}
+
+/* Year selection */
+h3 {
+    font-size: 25px;
+    font-weight: normal;
+    margin: 15px 0;
+}
+
+input[type="radio"] {
+    margin: 10px 5px;
+    accent-color: #e60000;
+}
+
+/* Clubs dropdown */
+select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+
+/* Bottom dashboard headings */
+body > h3 {
+    display: inline-block;
+    width: 23%;
+    text-align: center;
+    font-size: 28px;
+    text-decoration: underline;
+    margin-top: 25px;
+}
+
+/* Mobile responsive design */
+@media screen and (max-width: 700px) {
+
+    body > img:first-child {
+        position: static;
+        display: block;
+        margin: 10px auto;
+    }
+
+    header {
+        padding: 15px 5px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    header table {
+        font-size: 11px;
+    }
+
+    header th {
+        padding: 8px 3px;
+        font-size: 10px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    body > img:nth-of-type(2) {
+        margin: 30px auto;
+    }
+
+    body > form {
+        margin: 20px;
+    }
+
+    body > h3 {
+        width: 45%;
+        font-size: 20px;
+    }
+}
