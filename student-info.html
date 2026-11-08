@@ -11,7 +11,7 @@
     <header>
         <img src="Texas-Tech-Logo.png" alt="Texas Tech logo" width="100" height="100">
         <h1>TTU STUDENT PLANNER</h1>
-        
+
         <nav>
             <a href="student-planner.html">HOME</a>
             <a href="#">GROUPS</a>
@@ -28,7 +28,7 @@
 
     <h2>Welcome Username! </h2>
 
-    <img src="upload picture.png" class="profile-picture" alt="Student profile picture">
+    <img src="upload picturee.jpeg" class="profile-picture" alt="Student profile picture">
     <div class="profile-upload">
         <label for="profile-picture">Upload Profile Picture:</label>
         <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
@@ -50,26 +50,49 @@
         <br>
 
         <h3>Choose Your Year</h3>
-        <input type="radio" id="freshman" name="year" value="freshman">
-        <label for="freshman">freshman</label>
-        <input type="radio" id="sophomore" name="year" value="sophomore">
-        <label for="sophmore">sophmore</label>
-        <input type="radio" id="junior" name="year" value="junior">
-        <label for="junior">junior</label>
-        <input type="radio" id="senior" name="year" value="senior">
-        <label for="senior">senior</label>
+        <input type="radio" id="Freshman" name="year" value="Freshman">
+        <label for="Freshman">Freshman</label>
+        <input type="radio" id="Sophomore" name="year" value="Sophomore">
+        <label for="Sophomore">Sophomore</label>
+        <input type="radio" id="Junior" name="year" value="Junior">
+        <label for="Junior">Junior</label>
+        <input type="radio" id="Senior" name="year" value="Senior">
+        <label for="Senior">Senior</label>
 
         <br>
         <br>
 
-        <label for="clubs">select your clubs</label>
-        <select id="clubs" name="clubs" multiple> 
-            <option value="">choose as many as applies</option>
-            <option value="NSBE">NSBE</option>
-            <option value="SWE">SWE</option>
-            <option value="POWER LIFTING">POWER LIFTING</option>
-            <option value="ANIME">ANIME</option>
-        </select>
+        <div class="club-dropdown">
+            <label>Select Your Clubs</label>
+
+            <details>
+                <summary>Choose Your Clubs</summary>
+
+                <div class="club-options">
+
+                    <label>
+                        <input type="checkbox" name="clubs" value="NSBE">
+                        NSBE
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="clubs" value="SWE">
+                        SWE
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="clubs" value="POWER LIFTING">
+                        Power Lifting
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="clubs" value="ANIME">
+                        Anime
+                    </label>
+
+                </div>
+            </details>
+        </div>
 
         <br>
 
