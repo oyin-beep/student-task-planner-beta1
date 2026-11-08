@@ -1,5 +1,7 @@
 
+
 /* GENERAL PAGE STYLING */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,44 +9,96 @@
     font-family: 'Iosevka Charon', sans-serif;
 }
 
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
+
 body {
-    font-family: 'Iosevka Charon', sans-serif;
     background-color: white;
     color: black;
-    border: 5px solid black;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* MAIN TWO-COLUMN LAYOUT */
+
+.login-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
     min-height: 100vh;
 }
 
-/* HEADER */
-header {
-    background-color: #ed0800;
-    height: 135px;
-    width: 100%;
-    position: relative;
-    padding-top: 10px;
+/* LEFT SIDE - CAMPUS IMAGE */
+
+.image-section {
+    order: 1;
+    width: 67%;
+    flex: 0 0 67%;
+    height: 100vh;
+    overflow: hidden;
 }
 
-/* SMALL LOGO IN TOP-LEFT CORNER */
+.image-section img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* RIGHT SIDE - LOGIN PANEL */
+
+main {
+    order: 2;
+    width: 33%;
+    flex: 0 0 33%;
+    min-height: 100vh;
+    padding: 45px 35px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* HEADER AND LOGO */
+
+header {
+    background-color: white;
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    position: relative;
+    padding: 15px 0;
+    margin-bottom: 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* TEXAS TECH LOGO */
+
 header img {
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    width: 65px;
-    height: 65px;
+    position: static;
+    width: 210px;
+    height: auto;
     object-fit: contain;
 }
 
-/* CENTERED WEBSITE TITLE */
+/* WEBSITE TITLE */
+
 header h1 {
-    color: white;
+    color: black;
     text-align: center;
     font-family: 'Iosevka Charon', sans-serif;
-    font-size: 50px;
+    font-size: 22px;
     letter-spacing: 2px;
-    margin: 0;
+    margin-top: 15px;
 }
 
 /* NAVIGATION */
+
 nav {
     display: flex;
     justify-content: space-around;
@@ -55,7 +109,7 @@ nav {
 }
 
 nav a {
-    color: white;
+    color: black;
     text-decoration: none;
     font-family: 'Iosevka Charon', sans-serif;
     font-size: 16px;
@@ -64,60 +118,74 @@ nav a {
 
 nav a:hover {
     text-decoration: underline;
-    color: #ffb3b3;
+    color: #ed0800;
 }
 
-/* MAIN CONTENT */
-main {
-    padding: 20px 5%;
-}
+/* LOGIN CONTENT */
 
-/* WELCOME HEADING */
 main h2 {
-    text-align: center;
-    font-size: 38px;
+    width: 100%;
+    text-align: left;
+    font-size: 32px;
     font-weight: normal;
-    margin: 25px 0 35px;
+    margin: 0 0 20px;
 }
 
-/* SIGN-IN HEADING */
 main h3 {
+    width: 100%;
     font-size: 25px;
     font-weight: normal;
     margin-bottom: 20px;
 }
 
 /* SIGN-IN FORM */
+
 form {
-    width: 400px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 400px;
+    margin: 0;
 }
 
 /* FORM TABLE */
+
 .form-table {
     width: 100%;
-    border: 2px solid black;
+    border: none;
     border-collapse: collapse;
 }
 
-.form-table td {
-    padding: 12px 10px;
-    font-size: 18px;
-    border-bottom: 1px solid #eeeeee;
+.form-table tr {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px;
 }
 
-.form-table tr:last-child td {
-    border-bottom: none;
+.form-table td {
+    display: block;
+    width: 100%;
+    padding: 0;
+    font-size: 16px;
+    border: none;
+}
+
+/* FORM LABELS */
+
+.form-table label {
+    display: block;
+    margin-bottom: 7px;
 }
 
 /* FORM INPUTS */
+
 .form-table input {
+    display: block;
     width: 100%;
-    padding: 10px;
+    padding: 11px;
     font-family: 'Iosevka Charon', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     border: 1px solid #aaa;
-    border-radius: 3px;
+    border-radius: 0;
     outline: none;
 }
 
@@ -126,15 +194,17 @@ form {
 }
 
 /* SIGN-IN BUTTON */
+
 button {
+    width: 100%;
     margin-top: 20px;
-    padding: 10px 30px;
+    padding: 12px 30px;
     background-color: #ed0800;
     color: white;
     font-family: 'Iosevka Charon', sans-serif;
     font-size: 16px;
     border: none;
-    border-radius: 3px;
+    border-radius: 0;
     cursor: pointer;
 }
 
@@ -143,9 +213,11 @@ button:hover {
 }
 
 /* LOGIN LINK */
+
 main p {
-    margin-top: 35px;
-    font-size: 20px;
+    width: 100%;
+    margin-top: 30px;
+    font-size: 16px;
     font-weight: normal;
 }
 
@@ -159,30 +231,54 @@ main p {
 }
 
 /* RESPONSIVE LAYOUT */
+
 @media screen and (max-width: 768px) {
 
+    .login-container {
+        flex-direction: column;
+    }
+
+    .image-section {
+        order: 1;
+        width: 100%;
+        flex: 0 0 auto;
+        height: 260px;
+    }
+
+    main {
+        order: 2;
+        width: 100%;
+        flex: 0 0 auto;
+        min-height: auto;
+        padding: 35px 25px;
+    }
+
     header {
-        padding: 20px 10px;
+        margin-bottom: 35px;
     }
 
-    nav {
-        gap: 5px;
+    header img {
+        width: 180px;
     }
 
-    nav a {
-        font-size: 13px;
+    header h1 {
+        font-size: 19px;
     }
 
     main h2 {
         font-size: 30px;
     }
 
-    main {
-        padding: 20px 5%;
+    main h3 {
+        font-size: 22px;
     }
 
     form {
         width: 100%;
-        max-width: 400px;
+        max-width: 450px;
+    }
+
+    .image-section img {
+        object-position: center;
     }
 }

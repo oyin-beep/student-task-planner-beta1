@@ -1,13 +1,11 @@
 
-/* =====================================
-   GENERAL PAGE STYLING
-===================================== */
+/* GENERAL PAGE STYLING */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Iosevka Charon', sans-serif;
 }
 
 html, body {
@@ -21,9 +19,7 @@ body {
     overflow-x: hidden;
 }
 
-/* =====================================
-   MAIN TWO-COLUMN LAYOUT
-===================================== */
+/* MAIN TWO-COLUMN LAYOUT */
 
 .login-container {
     display: flex;
@@ -33,9 +29,7 @@ body {
     align-items: stretch;
 }
 
-/* =====================================
-   LEFT SIDE - CAMPUS IMAGE
-===================================== */
+/* LEFT SIDE - CAMPUS IMAGE */
 
 .image-section {
     order: 1;
@@ -52,9 +46,7 @@ body {
     display: block;
 }
 
-/* =====================================
-   RIGHT SIDE - LOGIN PANEL
-===================================== */
+/* RIGHT SIDE - LOGIN PANEL */
 
 main {
     order: 2;
@@ -70,9 +62,7 @@ main {
     padding: 55px 35px;
 }
 
-/* =====================================
-   HEADER AND TEXAS TECH LOGO
-===================================== */
+/* HEADER AND TEXAS TECH LOGO */
 
 header {
     width: 100%;
@@ -104,7 +94,7 @@ header img {
 
 header h1 {
     color: #111;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Iosevka Charon', sans-serif;
     font-size: 17px;
     font-weight: 600;
     letter-spacing: 2px;
@@ -113,9 +103,7 @@ header h1 {
     padding: 0;
 }
 
-/* =====================================
-   LOGIN CONTENT
-===================================== */
+/* LOGIN CONTENT */
 
 main h2 {
     width: 100%;
@@ -133,9 +121,7 @@ main h3 {
     padding-left: 0;
 }
 
-/* =====================================
-   LOGIN FORM
-===================================== */
+/* LOGIN FORM */
 
 form {
     width: 100%;
@@ -183,7 +169,7 @@ form {
     display: block;
     width: 100%;
     padding: 12px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Iosevka Charon', sans-serif;
     font-size: 14px;
 
     border: 1px solid #aaa;
@@ -195,9 +181,7 @@ form {
     border: 1px solid #ed0800;
 }
 
-/* =====================================
-   LOGIN BUTTON
-===================================== */
+/* LOGIN BUTTON */
 
 button {
     width: 100%;
@@ -207,7 +191,7 @@ button {
     background-color: #ed0800;
     color: white;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Iosevka Charon', sans-serif;
     font-size: 15px;
     font-weight: bold;
 
@@ -220,9 +204,7 @@ button:hover {
     background-color: #b80000;
 }
 
-/* =====================================
-   SIGN-IN LINK
-===================================== */
+/* SIGN-IN LINK */
 
 main p {
     width: 100%;
@@ -240,9 +222,7 @@ main p {
     color: #b80000;
 }
 
-/* =====================================
-   NAVIGATION (IF USED)
-===================================== */
+/*  NAVIGATION (IF USED) */
 
 nav {
     display: flex;
@@ -262,9 +242,7 @@ nav a:hover {
     color: #ed0800;
 }
 
-/* =====================================
-   RESPONSIVE LAYOUT - MOBILE
-===================================== */
+/* RESPONSIVE LAYOUT - MOBILE */
 
 @media screen and (max-width: 768px) {
 
@@ -320,9 +298,7 @@ nav a:hover {
     }
 }
 
-/* =====================================
-   SMALL MOBILE SCREENS
-===================================== */
+/* SMALL MOBILE SCREENS */
 
 @media screen and (max-width: 400px) {
 
