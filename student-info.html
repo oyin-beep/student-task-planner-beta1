@@ -7,8 +7,9 @@
     <title>Student Information</title>
 </head>
 <body>
-    <img src ="Texas-Tech-Logo.png" width="150.0" height="150.0">
+    
     <header>
+        <img src ="Texas-Tech-Logo.png" width="100.0" height="100.0">
         <h1>TTU STUDENT PLANNER</h1>
 
         <hr>
@@ -33,7 +34,11 @@
 
     <h2>Welcome Username! </h2>
 
-    <img src="upload picture.png"> 
+    <img src="upload picture.png" class="profile-picture" alt="Student profile picture">
+    <div class="profile-upload">
+        <label for="profile-picture">Upload Profile Picture:</label>
+        <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
+    </div>
    
     <hr>
 
@@ -41,13 +46,11 @@
         <table>
             <tr>
                 <td> <label for= "Major">Major: </label> </td>
-                <td> <input type="text" id="major" name="major" placeholder="Enter your major" required> </td>
+                <td> <input type="text" id="Major" name="Major" placeholder="Enter your major" required> </td>
             </tr>
         </table>
 
         <br>
-
-        <button type="submit"> Enter </button>
 
         <br>
         <br>
@@ -55,7 +58,7 @@
         <h3>Choose Your Year</h3>
         <input type="radio" id="freshman" name="year" value="freshman">
         <label for="freshman">freshman</label>
-        <input type="radio" id="sophmore" name="year" value="sophmore">
+        <input type="radio" id="sophomore" name="year" value="sophomore">
         <label for="sophmore">sophmore</label>
         <input type="radio" id="junior" name="year" value="junior">
         <label for="junior">junior</label>
@@ -66,20 +69,43 @@
         <br>
 
         <label for="clubs">select your clubs</label>
-        <select id="clubs" name="clubs"> 
+        <select id="clubs" name="clubs" multiple> 
             <option value="">choose as many as applies</option>
-            <option value="cs">NSBE</option>
-            <option value="ce">SWE</option>
-            <option value="me">POWER LIFTING</option>
-            <option value="ee">ANIME</option>
+            <option value="NSBE">NSBE</option>
+            <option value="SWE">SWE</option>
+            <option value="POWER LIFTING">POWER LIFTING</option>
+            <option value="ANIME">ANIME</option>
         </select>
+
+        <br>
+
+        <button type="submit"> Enter </button>
     </form>    
 
     <hr>
 
-    <h3>Groups</h3>
-    <h3>Connections</h3>
-    <h3>Events</h3>
-    <h3>Frequent Locations</h3>
+    <div class="dashboard">
+
+        <section class="dashboard-section">
+            <h3>Recent Groups</h3>
+            <p>Your recently visited groups will appear here.</p>
+        </section>
+
+        <section class="dashboard-section">
+            <h3>Recent Connections</h3>
+            <p>Your recent connections will appear here.</p>
+        </section>
+
+        <section class="dashboard-section">
+            <h3>Recent Events</h3>
+            <p>Your recent events will appear here.</p>
+        </section>
+
+        <section class="dashboard-section">
+            <h3>Frequent Locations</h3>
+            <p>Your frequently visited campus locations will appear here.</p>
+        </section>
+
+    </div>
 </body>
 </html>

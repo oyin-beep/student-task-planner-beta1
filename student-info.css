@@ -1,3 +1,5 @@
+
+/* GENERAL PAGE STYLING */
 * {
     margin: 0;
     padding: 0;
@@ -7,25 +9,29 @@
 body {
     font-family: 'Abel', sans-serif;
     background-color: white;
+    color: black;
     border: 5px solid black;
     min-height: 100vh;
     padding-bottom: 40px;
 }
 
-/* Texas Tech logo */
+/* TEXAS TECH LOGO */
 body > img:first-child {
+    display: block;
     width: 150px;
     height: 150px;
     object-fit: contain;
     position: absolute;
-    top: 110px;
+    top: 10px;
     left: 25px;
 }
 
-/* Header */
+/* HEADER */
 header {
-    background-color: #e60000;
-    padding: 25px;
+    background-color: #ed0800;
+    min-height: 135px;
+    width: 100%;
+    padding: 25px 20px;
     text-align: center;
 }
 
@@ -36,7 +42,7 @@ header h1 {
     margin-bottom: 20px;
 }
 
-/* Navigation bar */
+/* NAVIGATION BAR */
 header table {
     width: 100%;
     border-collapse: collapse;
@@ -60,7 +66,7 @@ header th a:hover {
     text-decoration: underline;
 }
 
-/* Horizontal lines */
+/* HORIZONTAL DIVIDERS */
 hr {
     border: none;
     height: 2px;
@@ -68,33 +74,54 @@ hr {
     margin: 15px 0;
 }
 
-/* Welcome heading */
+/* WELCOME HEADING */
 h2 {
     font-size: 38px;
     font-weight: normal;
-    margin: 15px 20px;
+    margin: 25px 30px;
 }
 
-h2::first-letter {
-    color: black;
-}
-
-/* Profile picture */
-body > img:nth-of-type(2) {
+/* PROFILE PICTURE */
+.profile-picture {
     display: block;
     width: 150px;
     height: 150px;
     object-fit: cover;
-    margin: 45px 10% 20px;
+    border: 3px solid black;
+    border-radius: 50%;
+    margin: 20px auto;
 }
 
-/* Student information form */
+/* PROFILE PICTURE UPLOAD */
+.profile-upload {
+    display: block;
+    text-align: center;
+    margin: 15px auto 30px;
+    font-size: 18px;
+}
+
+.profile-upload label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="file"] {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 8px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    background-color: white;
+}
+
+/* STUDENT INFORMATION FORM */
 body > form {
-    margin: 20px 10%;
+    margin: 25px 10%;
     font-size: 20px;
 }
 
-/* Major input */
+/* MAJOR INPUT */
 input[type="text"] {
     padding: 10px;
     width: 250px;
@@ -103,13 +130,14 @@ input[type="text"] {
     border-radius: 3px;
 }
 
-/* Enter button */
+/* FORM BUTTON */
 button {
-    background-color: #e60000;
+    background-color: #ed0800;
     color: white;
     border: none;
     padding: 10px 30px;
     font-size: 16px;
+    font-family: Arial, sans-serif;
     cursor: pointer;
     border-radius: 3px;
 }
@@ -118,7 +146,7 @@ button:hover {
     background-color: #b80000;
 }
 
-/* Year selection */
+/* YEAR SELECTION */
 h3 {
     font-size: 25px;
     font-weight: normal;
@@ -127,10 +155,10 @@ h3 {
 
 input[type="radio"] {
     margin: 10px 5px;
-    accent-color: #e60000;
+    accent-color: #ed0800;
 }
 
-/* Clubs dropdown */
+/* CLUBS DROPDOWN */
 select {
     padding: 10px;
     font-size: 16px;
@@ -139,12 +167,71 @@ select {
     margin-top: 10px;
 }
 
-/* Bottom dashboard headings */
-body > h3 {
-    display: inline-block;
-    width: 23%;
+/* DASHBOARD */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin: 35px 5%;
+}
+
+.dashboard-section {
+    border: 2px solid black;
+    padding: 20px;
+    min-height: 200px;
+    background-color: white;
+}
+
+.dashboard-section h3 {
+    font-size: 25px;
     text-align: center;
-    font-size: 28px;
     text-decoration: underline;
-    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+.dashboard-section p {
+    font-size: 17px;
+    text-align: center;
+    color: #555;
+}
+/* SMALLER SCREENS */
+@media screen and (max-width: 768px) {
+
+    body > img:first-child {
+        position: static;
+        margin: 10px auto;
+    }
+
+    header {
+        padding: 20px 10px;
+    }
+
+    header th {
+        padding: 8px 4px;
+        font-size: 12px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    body > form {
+        margin: 20px 5%;
+    }
+
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        max-width: 250px;
+    }
 }
