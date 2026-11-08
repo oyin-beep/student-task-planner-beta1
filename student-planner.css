@@ -23,15 +23,15 @@ header {
 }
 
 /* TEXAS TECH LOGO */
-body > img {
+header img {
     position: absolute;
     top: 15px;
     left: 20px;
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
-    z-index: 2;
 }
+
 
 /* WEBSITE TITLE */
 header h1 {
@@ -70,26 +70,50 @@ main {
     padding: 12px 18px;
 }
 
-/* CALENDAR HEADING */
-main h2 {
-    display: inline-block;
-    font-size: 32px;
-    font-weight: bold;
-    text-decoration: underline;
-    margin: 0 0 38px 0;
+/* CALENDAR SECTION */
+.calendar-section {
+    width: 96%;
+    margin: 30px auto;
 }
 
-/* MONTH AND YEAR */
-main p {
-    float: right;
+/* CALENDAR HEADER */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+/* MONTH NAVIGATION */
+.month-navigation {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* MONTH NAVIGATION BUTTONS */
+.month-navigation button {
+    background-color: #ed0800;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.month-navigation h3 {
+    font-size: 25px;
+}
+
+/* CALENDAR HEADING */
+.calendar-header h2 {
     font-size: 32px;
-    font-weight: bold;
-    text-decoration: underline;
+    margin: 0;
 }
 
 /* CALENDAR TABLE */
 .calendar {
-    width: 96%;
+    width: 100%;
     margin: 0 auto;
     border-collapse: collapse;
     table-layout: fixed;
@@ -106,10 +130,10 @@ main p {
 
 /* CALENDAR DATES */
 .calendar td {
-    border: 3px solid black;
-    height: 75px;
-    font-size: 24px;
+    border: 2px solid black;
+    height: 110px;
+    font-size: 20px;
     text-align: right;
     vertical-align: top;
-    padding: 7px;
+    padding: 10px;
 }
