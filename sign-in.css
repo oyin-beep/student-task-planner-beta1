@@ -9,11 +9,11 @@ body {
     color: #111;
 }
 
-body > img:first-child {
+header img {
     display: block;
     width: 150px;
     height: 150px;
-    margin: 20px auto 0;
+    margin: 0 auto 15px;
     object-fit: contain;
 }
 
