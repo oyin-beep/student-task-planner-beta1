@@ -3,47 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Iosevka+Charon&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="sign-in.css">
     <title>Login Page</title>
 </head>
 <body>
-    
-    <header>
-        <img src="Texas-Tech-Logo.png" alt="Texas Tech logo" width="100" height="100">
-        <h1>TTU STUDENT PLANNER</h1>
+    <div class="login-container">
+            <main>
+                <header>
+                    <img src="Texas-Tech-Logo.png" alt="Texas Tech logo" width="100" height="100">
+                    <h1>TTU STUDENT PLANNER</h1>
+            </header>
 
-        <nav>
-            <a href="student-planner.html">HOME</a>
-            <a href="#">GROUPS</a>
-            <a href="#">MAPS</a>
-            <a href="#">EVENTS</a>
-            <a href="#">SCHEDULE</a>
-            <a href="#">CONNECTIONS</a>
-            <a href="student-info.html">STUDENT</a>
-            <a href="sign-in.html">SIGN IN</a>
-        </nav>
-    </header>
+            <h2>WELCOME !</h2>
+            <h3>Login</h3>
 
-    <main>
-        <h2>WELCOME</h2>
-        <h3>Login</h3>
+            <form action="student-info.html" method="post">
+                <table class="form-table">
+                    <tr>
+                        <td><label for="email">TTU Mail:</label></td>
+                        <td><input type="email" id="email" name="email" placeholder="Enter your TTU email" autocomplete="username" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">Password:</label></td>
+                        <td><input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required></td>
+                    </tr>
+                </table>
 
-        <form action="student-info.html" method="post">
-            <table class="form-table">
-                <tr>
-                    <td><label for="email">TTU Mail:</label></td>
-                    <td><input type="email" id="email" name="email" placeholder="Enter your TTU email" autocomplete="username" required></td>
-                </tr>
-                <tr>
-                    <td><label for="password">Password:</label></td>
-                    <td><input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required></td>
-                </tr>
-            </table>
+                <button type="submit">Login</button>
+            </form>
 
-            <button type="submit">Login</button>
-        </form>
+            <p>First time? <a class="switch-link" href="sign-in.html">Sign in</a></p>
+        </main>
 
-        <p>First time? <a class="switch-link" href="sign-in.html">Sign in</a></p>
-    </main>
+        <div class="image-section">
+            <img src="campus-sm.webp" alt="Campus">
+        </div>
+
+    </div>
+
 </body>
 </html>
