@@ -1,1 +1,53 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Campus Map | University Planner</title>
+    <link rel="stylesheet" href="map.css/Mapstyle.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar" aria-label="Main navigation">
+        <a href="login.html">HOME</a>
+        <a href="groups.html">GROUPS</a>
+        <a href="map.html" aria-current="page">MAPS</a>
+        <a href="schedule.html">SCHEDULE</a>
+        <a href="groups.html">CONNECTION</a>
+        <a href="login.html">USER</a>
+    </nav>
+</header>
+
+<main>
+    <section class="map-container"
+             aria-label="Texas Tech campus map">
+
+        <iframe
+            id="campus-map"
+            title="Interactive satellite map of Texas Tech"
+            src="https://www.google.com/maps?q=Texas+Tech+University+Memorial+Circle&output=embed&t=k"
+            loading="lazy"
+            allowfullscreen>
+        </iframe>
+
+        <div class="map-controls">
+            <button id="add-pin" type="button">
+                Pin ⊙
+            </button>
+
+            <button id="delete-pin" type="button">
+                Delete Pin ⊗
+            </button>
+        </div>
+
+        <p id="map-status" class="sr-only"
+           role="status"></p>
+    </section>
+</main>
+
+<script src="js/map.js"></script>
+</body>
+</html>
