@@ -1,0 +1,317 @@
+
+/* GENERAL PAGE STYLING */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Iosevka Charon', sans-serif;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background-color: white;
+    color: #111;
+    overflow-x: hidden;
+}
+
+/* MAIN TWO-COLUMN LAYOUT */
+
+.login-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 100vh;
+    align-items: stretch;
+}
+
+/* LEFT SIDE - CAMPUS IMAGE */
+
+.image-section {
+    order: 1;
+    width: 67%;
+    flex: 0 0 67%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* RIGHT SIDE - LOGIN PANEL */
+
+main {
+    order: 2;
+    width: 33%;
+    flex: 0 0 33%;
+    min-height: 100vh;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 55px 35px;
+}
+
+/* HEADER AND TEXAS TECH LOGO */
+
+header {
+    width: 100%;
+    min-height: auto;
+    height: auto;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px 0;
+    margin-bottom: 55px;
+    position: relative;
+}
+
+/* TEXAS TECH LOGO */
+
+header img {
+    position: static;
+    width: 210px;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* WEBSITE TITLE */
+
+header h1 {
+    color: #111;
+    font-family: 'Iosevka Charon', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 15px;
+    padding: 0;
+}
+
+/* LOGIN CONTENT */
+
+main h2 {
+    width: 100%;
+    text-align: left;
+    font-size: 30px;
+    font-weight: 500;
+    margin: 0 0 15px;
+}
+
+main h3 {
+    width: 100%;
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    padding-left: 0;
+}
+
+/* LOGIN FORM */
+
+form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0;
+}
+
+/* LOGIN TABLE */
+
+.form-table {
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+}
+
+/* STACK LABELS AND INPUTS */
+
+.form-table tr {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.form-table td {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    font-size: 14px;
+}
+
+/* FORM LABELS */
+
+.form-table label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* INPUT FIELDS */
+
+.form-table input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-family: 'Iosevka Charon', sans-serif;
+    font-size: 14px;
+
+    border: 1px solid #aaa;
+    border-radius: 0;
+    outline: none;
+}
+
+.form-table input:focus {
+    border: 1px solid #ed0800;
+}
+
+/* LOGIN BUTTON */
+
+button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 13px;
+
+    background-color: #ed0800;
+    color: white;
+
+    font-family: 'Iosevka Charon', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #b80000;
+}
+
+/* SIGN-IN LINK */
+
+main p {
+    width: 100%;
+    margin: 30px 0 0;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.switch-link {
+    color: #ed0800;
+    text-decoration: underline;
+}
+
+.switch-link:hover {
+    color: #b80000;
+}
+
+/*  NAVIGATION (IF USED) */
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+nav a {
+    color: #111;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #ed0800;
+}
+
+/* RESPONSIVE LAYOUT - MOBILE */
+
+@media screen and (max-width: 768px) {
+
+    .login-container {
+        flex-direction: column;
+    }
+
+    /* IMAGE ABOVE LOGIN PANEL */
+
+    .image-section {
+        order: 1;
+        width: 100%;
+        flex: 0 0 auto;
+        height: 260px;
+    }
+
+    /* LOGIN PANEL BELOW IMAGE */
+
+    main {
+        order: 2;
+        width: 100%;
+        flex: 0 0 auto;
+        min-height: auto;
+        padding: 35px 25px 50px;
+    }
+
+    header {
+        margin-bottom: 35px;
+    }
+
+    header img {
+        width: 190px;
+    }
+
+    header h1 {
+        font-size: 15px;
+    }
+
+    main h2 {
+        font-size: 27px;
+    }
+
+    main h3 {
+        font-size: 18px;
+    }
+
+    form {
+        max-width: 450px;
+    }
+
+    .image-section img {
+        object-position: center;
+    }
+}
+
+/* SMALL MOBILE SCREENS */
+
+@media screen and (max-width: 400px) {
+
+    main {
+        padding: 30px 20px;
+    }
+
+    .image-section {
+        height: 210px;
+    }
+
+    header img {
+        width: 165px;
+    }
+
+}

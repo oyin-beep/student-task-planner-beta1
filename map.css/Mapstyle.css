@@ -1,0 +1,112 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ed0800;
+    min-height: 65px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 22px 12px;
+}
+
+.navbar a:hover,
+.navbar a:focus-visible {
+    background-color: #ba0600;
+}
+
+
+.map-container {
+    position: relative;
+    margin: 30px auto 0;
+    width: 94%;
+    max-width: 1400px;
+    height: 70vh;
+    min-height: 450px;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+.map-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #ed0800;
+    z-index: 2;
+}
+
+.map-controls button {
+    background-color: #ed0800;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+}
+
+.map-controls button:hover,
+.map-controls button:focus-visible {
+    background-color: #b80000;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+@media (max-width: 700px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .navbar a {
+        font-size: 12px;
+        padding: 12px 8px;
+    }
+
+    .map-container {
+        width: 96%;
+        height: 65vh;
+        min-height: 350px;
+        margin-top: 15px;
+    }
+
+    .map-controls button {
+        font-size: 16px;
+    }
+}

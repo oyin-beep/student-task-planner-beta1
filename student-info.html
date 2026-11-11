@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Iosevka+Charon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="student-info.css">
+    <title>Student Information</title>
+</head>
+<body>
+    
+    <header>
+        <img src="Texas-Tech-Logo.png" alt="Texas Tech logo" width="100" height="100">
+        <h1>TTU STUDENT PLANNER</h1>
+
+        <nav>
+            <a href="student-planner.html">HOME</a>
+            <a href="groups.html">GROUPS</a>
+            <a href="map.html">MAPS</a>
+            <a href="eventsindex.html">EVENTS</a>
+            <a href="schedule.html">SCHEDULE</a>
+            <a href="#">CONNECTIONS</a>
+            <a href="student-info.html">USER</a>
+
+        </nav>
+    </header>
+
+    <hr>
+
+    <h2>Welcome Username! </h2>
+
+    <img src="upload picturee.jpeg" class="profile-picture" alt="Student profile picture">
+    <div class="profile-upload">
+        <label for="profile-picture">Upload Profile Picture:</label>
+        <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
+    </div>
+   
+    <hr>
+
+    <form action="submit" method="post">
+        <table>
+            <tr>
+                <td> <label for= "Major">Major: </label> </td>
+                <td> <input type="text" id="Major" name="Major" placeholder="Enter your major" required> </td>
+            </tr>
+        </table>
+
+        <br>
+        <br>
+
+        <h3>Choose Your Year</h3>
+        <input type="radio" id="Freshman" name="year" value="Freshman">
+        <label for="Freshman">Freshman</label>
+        <input type="radio" id="Sophomore" name="year" value="Sophomore">
+        <label for="Sophomore">Sophomore</label>
+        <input type="radio" id="Junior" name="year" value="Junior">
+        <label for="Junior">Junior</label>
+        <input type="radio" id="Senior" name="year" value="Senior">
+        <label for="Senior">Senior</label>
+
+        <br>
+        <br>
+
+        <div class="club-dropdown">
+            <label>Select Your Clubs</label>
+
+            <details>
+                <summary>Choose Your Clubs</summary>
+
+                <div class="club-options">
+
+                    <label>
+                        <input type="checkbox" name="clubs" value="NSBE">
+                        NSBE
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="clubs" value="SWE">
+                        SWE
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="clubs" value="POWER LIFTING">
+                        Power Lifting
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="clubs" value="ANIME">
+                        Anime
+                    </label>
+
+                </div>
+            </details>
+        </div>
+
+        <br>
+
+        <button type="submit"> Enter </button>
+    </form>    
+
+    <hr>
+
+    <div class="dashboard">
+
+        <section class="dashboard-section">
+            <h3>Recent Groups</h3>
+            <p>Your recently visited groups will appear here.</p>
+        </section>
+
+        <section class="dashboard-section">
+            <h3>Recent Connections</h3>
+            <p>Your recent connections will appear here.</p>
+        </section>
+
+        <section class="dashboard-section">
+            <h3>Recent Events</h3>
+            <p>Your recent events will appear here.</p>
+        </section>
+
+        <section class="dashboard-section">
+            <h3>Frequent Locations</h3>
+            <p>Your frequently visited campus locations will appear here.</p>
+        </section>
+
+    </div>
+</body>
+</html>

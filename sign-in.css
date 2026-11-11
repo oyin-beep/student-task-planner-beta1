@@ -1,0 +1,284 @@
+
+
+/* GENERAL PAGE STYLING */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Iosevka Charon', sans-serif;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background-color: white;
+    color: black;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* MAIN TWO-COLUMN LAYOUT */
+
+.login-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* LEFT SIDE - CAMPUS IMAGE */
+
+.image-section {
+    order: 1;
+    width: 67%;
+    flex: 0 0 67%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.image-section img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* RIGHT SIDE - LOGIN PANEL */
+
+main {
+    order: 2;
+    width: 33%;
+    flex: 0 0 33%;
+    min-height: 100vh;
+    padding: 45px 35px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* HEADER AND LOGO */
+
+header {
+    background-color: white;
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    position: relative;
+    padding: 15px 0;
+    margin-bottom: 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* TEXAS TECH LOGO */
+
+header img {
+    position: static;
+    width: 210px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* WEBSITE TITLE */
+
+header h1 {
+    color: black;
+    text-align: center;
+    font-family: 'Iosevka Charon', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-top: 15px;
+}
+
+/* NAVIGATION */
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 65px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+    font-family: 'Iosevka Charon', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #ed0800;
+}
+
+/* LOGIN CONTENT */
+
+main h2 {
+    width: 100%;
+    text-align: left;
+    font-size: 32px;
+    font-weight: normal;
+    margin: 0 0 20px;
+}
+
+main h3 {
+    width: 100%;
+    font-size: 25px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+/* SIGN-IN FORM */
+
+form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0;
+}
+
+/* FORM TABLE */
+
+.form-table {
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+}
+
+.form-table tr {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.form-table td {
+    display: block;
+    width: 100%;
+    padding: 0;
+    font-size: 16px;
+    border: none;
+}
+
+/* FORM LABELS */
+
+.form-table label {
+    display: block;
+    margin-bottom: 7px;
+}
+
+/* FORM INPUTS */
+
+.form-table input {
+    display: block;
+    width: 100%;
+    padding: 11px;
+    font-family: 'Iosevka Charon', sans-serif;
+    font-size: 15px;
+    border: 1px solid #aaa;
+    border-radius: 0;
+    outline: none;
+}
+
+.form-table input:focus {
+    border-color: #ed0800;
+}
+
+/* SIGN-IN BUTTON */
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #ed0800;
+    color: white;
+    font-family: 'Iosevka Charon', sans-serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #b80000;
+}
+
+/* LOGIN LINK */
+
+main p {
+    width: 100%;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.switch-link {
+    color: #ed0800;
+    text-decoration: underline;
+}
+
+.switch-link:hover {
+    color: #b80000;
+}
+
+/* RESPONSIVE LAYOUT */
+
+@media screen and (max-width: 768px) {
+
+    .login-container {
+        flex-direction: column;
+    }
+
+    .image-section {
+        order: 1;
+        width: 100%;
+        flex: 0 0 auto;
+        height: 260px;
+    }
+
+    main {
+        order: 2;
+        width: 100%;
+        flex: 0 0 auto;
+        min-height: auto;
+        padding: 35px 25px;
+    }
+
+    header {
+        margin-bottom: 35px;
+    }
+
+    header img {
+        width: 180px;
+    }
+
+    header h1 {
+        font-size: 19px;
+    }
+
+    main h2 {
+        font-size: 30px;
+    }
+
+    main h3 {
+        font-size: 22px;
+    }
+
+    form {
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .image-section img {
+        object-position: center;
+    }
+}
