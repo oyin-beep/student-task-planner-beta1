@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive Academic Schedule and To-do List">
+  <title>Academic Schedule</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* Global & Typography Reset */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f3f4f6;
+      color: #000000;
+      user-select: none;
+    }
+
+    /* Fixed Canvas Box Structure */
+    .app-box {
+      width: 1280px;
+      min-height: 820px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    /* Navigation Bar Styling */
+    .nav-header {
+      width: 100%;
+      background-color: #e90802;
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.125rem;
+    }
+
+    .nav-btn {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid #ff3b35;
+      background-color: transparent;
+      color: #ffffff;
+      transition: background-color 0.2s ease;
+    }
+
+    .nav-btn:last-child {
+      border-right: none;
+    }
+
+    .nav-btn:hover, .nav-btn.active {
+      background-color: #c80602;
+    }
+
+    /* Timetable Canvas & Grid */
+    .timetable-grid {
+      display: grid;
+      grid-template-columns: 45px repeat(7, 1fr);
+      grid-template-rows: 40px repeat(17, 32px); /* 8:00 to 24:00 (17 hours) */
+      border: 1px solid #000000;
+      background-color: #ffffff;
+      position: relative;
+    }
+
+    .grid-cell {
+      border-right: 1px solid #000000;
+      border-bottom: 1px solid #000000;
+    }
+
+    .grid-cell-interactive {
+      cursor: pointer;
+    }
+
+    .grid-cell-interactive:hover {
+      background-color: #fef2f2;
+    }
+
+    .grid-header {
+      border-right: 1px solid #000000;
+      border-bottom: 1px solid #000000;
+      background-color: #ffb4b4;
+      font-weight: 700;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .time-label {
+      border-right: 1px solid #000000;
+      border-bottom: 1px solid #000000;
+      background-color: #ffb4b4;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    /* Timetable Event Blocks (Positions & Colors mapped via CSS classes) */
+    .events-overlay {
+      position: absolute;
+      top: 40px;
+      left: 45px;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+    }
+
+    .event-block {
+      position: absolute;
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+      color: #000000;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      transition: transform 0.15s ease, filter 0.15s ease;
+      z-index: 10;
+      pointer-events: auto;
+    }
+
+    .event-block:hover {
+      transform: scale(1.02);
+      filter: brightness(0.95);
+    }
+
+    /* Subject Color Palette Classes */
+    .color-red { background-color: #ff6666; }
+    .color-yellow { background-color: #ffed66; }
+    .color-purple { background-color: #d890ff; }
+    .color-teal { background-color: #94ffe6; }
+    .color-orange { background-color: #ffb84d; }
+    .color-green { background-color: #85e085; }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-start min-h-screen py-4">
+
+  <!-- Main Desktop Container -->
+  <main class="app-box">
+
+    <!-- 1. Header Navigation Bar -->
+    <header class="nav-header">
+      <nav class="flex w-full h-full" aria-label="Main Navigation">
+        <button class="nav-btn active" onclick="setActiveNav(this)" data-lang-key="nav_home">HOME</button>
+        <button class="nav-btn" onclick="setActiveNav(this)" data-lang-key="nav_groups">GROUPS</button>
+        <button class="nav-btn" onclick="setActiveNav(this)" data-lang-key="nav_maps">MAPS</button>
+        <button class="nav-btn" onclick="setActiveNav(this)" data-lang-key="nav_events">EVENTS</button>
+        <button class="nav-btn" onclick="setActiveNav(this)" data-lang-key="nav_schedule">SCHEDULE</button>
+        <button class="nav-btn" onclick="setActiveNav(this)" data-lang-key="nav_connection">CONNECTION</button>
+        <button class="nav-btn" onclick="setActiveNav(this)" data-lang-key="nav_user">USER</button>
+      </nav>
+    </header>
+
+    <!-- Language Toggle -->
+    <div class="absolute top-[85px] right-[40px] flex items-center gap-3 text-sm z-20">
+      <button onclick="switchLanguage('en')" id="lang-en" class="underline font-bold text-black hover:text-red-600">English 🌐</button>
+      <span class="text-gray-400">|</span>
+      <button onclick="switchLanguage('ko')" id="lang-ko" class="text-gray-600 hover:text-red-600">한국어 🌐</button>
+    </div>
+
+    <!-- Main Grid Content -->
+    <div class="flex p-8 pt-6 gap-8 justify-between">
+      
+      <!-- LEFT SECTION: Timetable Panel -->
+      <section class="w-[720px] flex flex-col">
+        
+        <!-- Controls Header -->
+        <div class="flex justify-between items-end mb-3">
+          <div>
+            <div class="flex items-center gap-2 cursor-pointer group">
+              <h2 class="text-2xl font-extrabold" data-lang-key="select_terms">Select terms</h2>
+              <span class="text-xs group-hover:translate-y-0.5 transition-transform">▼</span>
+            </div>
+            <div class="flex items-center gap-3 mt-1">
+              <button class="text-3xl font-extrabold hover:text-red-600 transition-colors">&lt;</button>
+              <h3 class="text-3xl font-extrabold tracking-tight">Sep. 27 - Oct. 3</h3>
+              <button class="text-3xl font-extrabold hover:text-red-600 transition-colors">&gt;</button>
+              <span class="text-2xl cursor-pointer hover:scale-110 transition-transform" title="Calendar View">🗓️</span>
+            </div>
+          </div>
+          
+          <button onclick="openScheduleModal()" class="text-base font-semibold text-black underline hover:text-red-600 transition-colors pb-1 flex items-center gap-1">
+            <span>+</span> <span data-lang-key="add_schedule">add schedule</span>
+          </button>
+        </div>
+
+        <!-- Timetable Grid Container -->
+        <div class="relative w-full">
+          <div class="timetable-grid" id="timetableGrid">
+            <!-- Header Row -->
+            <div class="grid-header text-xs"></div>
+            <div class="grid-header">Sun. <span class="font-normal text-xs">(9.27)</span></div>
+            <div class="grid-header">Mon. <span class="font-normal text-xs">(9.28)</span></div>
+            <div class="grid-header">Tue. <span class="font-normal text-xs">(9.29)</span></div>
+            <div class="grid-header">Wed. <span class="font-normal text-xs">(9.30)</span></div>
+            <div class="grid-header">Thu. <span class="font-normal text-xs">(10.01)</span></div>
+            <div class="grid-header">Fri. <span class="font-normal text-xs">(10.02)</span></div>
+            <div class="grid-header">Sat. <span class="font-normal text-xs">(10.03)</span></div>
+            <!-- Dynamic Cells appended here -->
+          </div>
+
+          <!-- Schedule Overlay Layer -->
+          <div id="eventsContainer" class="events-overlay">
+            <!-- Dynamic Class Blocks -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Vertical Divider Line -->
+      <div class="w-[1px] border-r-2 border-dashed border-gray-400 my-2"></div>
+
+      <!-- RIGHT SECTION: To-do List & Due Soon Panel -->
+      <section class="w-[430px] flex flex-col justify-between pl-2">
+        
+        <!-- To-do Section -->
+        <div>
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-3xl font-extrabold tracking-tight" data-lang-key="todo_title">To-do List</h2>
+            <button onclick="openSubjectModal()" class="text-base font-semibold text-black underline hover:text-red-600 transition-colors">
+              + <span data-lang-key="add_subject">add subject</span>
+            </button>
+          </div>
+
+          <!-- Accordion Subjects Container -->
+          <div id="subjectsContainer" class="space-y-3 max-h-[310px] overflow-y-auto pr-1">
+            <!-- Dynamic Accordions -->
+          </div>
+
+          <!-- Add Task Button -->
+          <button onclick="openTaskModal()" class="mt-4 flex items-center gap-2 text-base font-bold text-gray-800 hover:text-red-600 transition-colors pl-1">
+            <span class="text-lg font-extrabold">+</span>
+            <span data-lang-key="click_to_add">Click here to add</span>
+          </button>
+        </div>
+
+        <!-- Horizontal Divider -->
+        <div class="w-full border-t-2 border-dashed border-gray-400 my-4"></div>
+
+        <!-- Due Soon Section -->
+        <div class="flex flex-col h-[230px]">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-yellow-500 font-extrabold text-2xl">⚠️</span>
+            <h3 class="text-2xl font-extrabold tracking-tight" data-lang-key="due_soon">Due Soon</h3>
+          </div>
+
+          <div id="dueSoonList" class="space-y-3 overflow-y-auto pr-1">
+            <!-- Dynamic Items -->
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- MODAL 1: Add/Edit Schedule -->
+  <div id="scheduleModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-xl p-6 w-[400px] shadow-2xl border border-gray-200">
+      <h3 class="text-xl font-bold mb-4" id="scheduleModalTitle" data-lang-key="modal_add_sched">Add Schedule Block</h3>
+      <form id="scheduleForm" onsubmit="saveSchedule(event)" class="space-y-4">
+        <input type="hidden" id="schedId">
+        <div>
+          <label class="block text-xs font-semibold text-gray-600 uppercase mb-1" data-lang-key="lbl_course">Course / Subject Name</label>
+          <input type="text" id="schedCourse" required placeholder="e.g. ENGR" class="w-full border rounded-lg p-2 text-sm focus:ring-2 focus:ring-red-500 outline-none">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 uppercase mb-1" data-lang-key="lbl_day">Day</label>
+            <select id="schedDay" class="w-full border rounded-lg p-2 text-sm focus:ring-2 focus:ring-red-500 outline-none">
+              <option value="0">Sunday</option>
+              <option value="1">Monday</option>
+              <option value="2">Tuesday</option>
+              <option value="3">Wednesday</option>
+              <option value="4">Thursday</option>
+              <option value="5">Friday</option>
+              <option value="6">Saturday</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 uppercase mb-1" data-lang-key="lbl_color">Block Color</label>
+            <select id="schedColor" class="w-full border rounded-lg p-2 text-sm focus:ring-2 focus:ring-red-500 outline-none">
+              <option value="color-red">Red (ENGL)</option>
+              <option value="color-yellow">Yellow (MATH)</option>
+              <option value="color-purple">Purple (HIST)</option>
+              <option value="color-teal">Teal (ENGR)</option>
+              <option value="color-orange">Orange</option>
+              <option value="color-green">Green</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 uppercase mb-1" data-lang-key="lbl_start">Start Time (Hour)</label>
+            <input type="number" id="schedStart" min="8" max="23" value="10" required class="w-full border rounded-lg p-2 text-sm focus:ring-2 focus:ring-red-500 outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 uppercase mb-1" data-lang-key="lbl_end">End Time (Hour)</label>
+            <input type="number" id="schedEnd" min="9" max="24" value="12" required class="w-full border rounded-lg p-2 text-sm focus:ring-2 focus:ring-red-500 outline-none">
+          </div>
+        </div>
+        <div class="flex justify-between items-center pt-2">
+          <button type="button" id="btnDeleteSchedule" onclick="deleteSchedule()" class="text-red-600 text-sm font-semibold hover:underline hidden" data-lang-key="btn_delete">Delete</button>
+          <div class="flex gap-2 ml-auto">
+            <button type="button" onclick="closeScheduleModal()" class="px-4 py-2 text-sm font-semibold text-gray-600 hover:bg-gray-100 rounded-lg" data-lang-key="btn_cancel">Cancel</button>
+            <button type="submit" class="px-4 py-2 text-sm font-semibold bg-red-600 text-white rounded-lg hover:bg-red-700 shadow" data-lang-key="btn_save">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 2: Add Task -->
+  <div id="taskModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-xl p-6 w-[380px] shadow-2xl border border-gray-200">
+      <h3 class="text-xl font-bold mb-4" data-lang-key="modal_add_task">Add New To-do Task</h3>
+      <form onsubmit="saveTask(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-gray-600 uppercase mb-1" data-lang-key="lbl_subject">Select Subject</label>
+          <select id="taskSubjectSelect" class="w-full border rounded-lg p-2 text-sm focus:ring-2 focus:ring-red-500 outline-none"></select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-600 uppercase mb-1" data-lang-key="lbl_task">Task Title</label>
+          <input type="text" id="taskTitle" required placeholder="e.g. Assignment #2" class="w-full border rounded-lg p-2 text-sm focus:ring-2 focus:ring-red-500 outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-600 uppercase mb-1" data-lang-key="lbl_due">Due Date</label>
+          <input type="date" id="taskDueDate" required class="w-full border rounded-lg p-2 text-sm focus:ring-2 focus:ring-red-500 outline-none">
+        </div>
+        <div class="flex justify-end gap-2 pt-2">
+          <button type="button" onclick="closeTaskModal()" class="px-4 py-2 text-sm font-semibold text-gray-600 hover:bg-gray-100 rounded-lg" data-lang-key="btn_cancel">Cancel</button>
+          <button type="submit" class="px-4 py-2 text-sm font-semibold bg-red-600 text-white rounded-lg hover:bg-red-700 shadow" data-lang-key="btn_save">Add Task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 3: Add Subject -->
+  <div id="subjectModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-xl p-6 w-[350px] shadow-2xl border border-gray-200">
+      <h3 class="text-xl font-bold mb-4" data-lang-key="modal_add_subj">Add New Subject</h3>
+      <form onsubmit="saveSubject(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-gray-600 uppercase mb-1" data-lang-key="lbl_subj_name">Subject Name (e.g. PHYS)</label>
+          <input type="text" id="subjName" required placeholder="PHYS" class="w-full border rounded-lg p-2 text-sm focus:ring-2 focus:ring-red-500 outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-600 uppercase mb-1" data-lang-key="lbl_color">Badge Color Theme</label>
+          <select id="subjColorClass" class="w-full border rounded-lg p-2 text-sm focus:ring-2 focus:ring-red-500 outline-none">
+            <option value="color-teal">Teal</option>
+            <option value="color-red">Red</option>
+            <option value="color-yellow">Yellow</option>
+            <option value="color-purple">Purple</option>
+            <option value="color-orange">Orange</option>
+            <option value="color-green">Green</option>
+          </select>
+        </div>
+        <div class="flex justify-end gap-2 pt-2">
+          <button type="button" onclick="closeSubjectModal()" class="px-4 py-2 text-sm font-semibold text-gray-600 hover:bg-gray-100 rounded-lg" data-lang-key="btn_cancel">Cancel</button>
+          <button type="submit" class="px-4 py-2 text-sm font-semibold bg-red-600 text-white rounded-lg hover:bg-red-700 shadow" data-lang-key="btn_save">Add Subject</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- APPLICATION LOGIC -->
+  <script>
+    let currentLang = 'en';
+
+    const translations = {
+      en: {
+        nav_home: "HOME", nav_groups: "GROUPS", nav_maps: "MAPS", nav_events: "EVENTS",
+        nav_schedule: "SCHEDULE", nav_connection: "CONNECTION", nav_user: "USER",
+        select_terms: "Select terms", add_schedule: "add schedule", todo_title: "To-do List",
+        add_subject: "add subject", click_to_add: "Click here to add", due_soon: "Due Soon",
+        modal_add_sched: "Add / Edit Schedule Block", lbl_course: "Course / Subject Name",
+        lbl_day: "Day", lbl_color: "Color Theme", lbl_start: "Start Hour (8-23)", lbl_end: "End Hour (9-24)",
+        btn_cancel: "Cancel", btn_save: "Save", btn_delete: "Delete", modal_add_task: "Add New Task",
+        lbl_subject: "Select Subject", lbl_task: "Task Title", lbl_due: "Due Date", modal_add_subj: "Add Subject",
+        lbl_subj_name: "Subject Name"
+      },
+      ko: {
+        nav_home: "홈", nav_groups: "그룹", nav_maps: "지도", nav_events: "이벤트",
+        nav_schedule: "스케줄", nav_connection: "커넥션", nav_user: "마이페이지",
+        select_terms: "학기 선택", add_schedule: "일정 추가", todo_title: "할 일 목록",
+        add_subject: "과목 추가", click_to_add: "클릭하여 할 일 추가", due_soon: "마감 임박",
+        modal_add_sched: "일정 추가 / 수정", lbl_course: "과목명",
+        lbl_day: "요일", lbl_color: "색상 테마", lbl_start: "시작 시간 (8-23)", lbl_end: "종료 시간 (9-24)",
+        btn_cancel: "취소", btn_save: "저장", btn_delete: "삭제", modal_add_task: "새 할 일 추가",
+        lbl_subject: "과목 선택", lbl_task: "할 일 내용", lbl_due: "마감일", modal_add_subj: "과목 추가",
+        lbl_subj_name: "과목 이름"
+      }
+    };
+
+    let schedules = [
+      { id: 1, course: 'ENGL', day: 2, start: 10, end: 11, colorClass: 'color-red' },
+      { id: 2, course: 'ENGL', day: 4, start: 10, end: 11, colorClass: 'color-red' },
+      { id: 3, course: 'HIST', day: 1, start: 13, end: 14, colorClass: 'color-purple' },
+      { id: 4, course: 'HIST', day: 3, start: 13, end: 14, colorClass: 'color-purple' },
+      { id: 5, course: 'HIST', day: 5, start: 13, end: 14, colorClass: 'color-purple' },
+      { id: 6, course: 'MATH', day: 2, start: 14, end: 15, colorClass: 'color-yellow' },
+      { id: 7, course: 'MATH', day: 4, start: 14, end: 15, colorClass: 'color-yellow' },
+      { id: 8, course: 'ENGR', day: 1, start: 15, end: 16, colorClass: 'color-teal' },
+      { id: 9, course: 'ENGR', day: 3, start: 15, end: 16, colorClass: 'color-teal' },
+      { id: 10, course: 'ENGR', day: 5, start: 15, end: 16, colorClass: 'color-teal' }
+    ];
+
+    let subjects = [
+      { id: 'engl', name: 'ENGL', colorClass: 'color-red', expanded: true },
+      { id: 'math', name: 'MATH', colorClass: 'color-yellow', expanded: false },
+      { id: 'hist', name: 'HIST', colorClass: 'color-purple', expanded: false },
+      { id: 'engr', name: 'ENGR', colorClass: 'color-teal', expanded: true }
+    ];
+
+    let tasks = [
+      { id: 101, subjectId: 'engl', title: 'Assignment #1', dueDate: '2026-09-28', completed: false },
+      { id: 102, subjectId: 'engr', title: 'Milestone #3', dueDate: '2026-10-04', completed: false },
+      { id: 103, subjectId: 'math', title: 'H.W. Ch.2', dueDate: '2026-10-02', completed: false }
+    ];
+
+    window.onload = function () {
+      buildGridBase();
+      renderTimetable();
+      renderSubjectsAndTasks();
+      renderDueSoon();
+    };
+
+    function setActiveNav(btn) {
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function switchLanguage(lang) {
+      currentLang = lang;
+      document.querySelectorAll('[data-lang-key]').forEach(el => {
+        const key = el.getAttribute('data-lang-key');
+        if (translations[lang][key]) {
+          el.innerText = translations[lang][key];
+        }
+      });
+      if (lang === 'en') {
+        document.getElementById('lang-en').className = 'underline font-bold text-black';
+        document.getElementById('lang-ko').className = 'text-gray-600 hover:text-red-600';
+      } else {
+        document.getElementById('lang-ko').className = 'underline font-bold text-black';
+        document.getElementById('lang-en').className = 'text-gray-600 hover:text-red-600';
+      }
+    }
+
+    // Build Interactive Grid Cells
+    function buildGridBase() {
+      const grid = document.getElementById('timetableGrid');
+      for (let hour = 8; hour <= 24; hour++) {
+        const timeLabel = document.createElement('div');
+        timeLabel.className = 'time-label';
+        timeLabel.innerText = hour;
+        grid.appendChild(timeLabel);
+
+        for (let day = 0; day < 7; day++) {
+          const cell = document.createElement('div');
+          cell.className = 'grid-cell grid-cell-interactive';
+          cell.onclick = () => {
+            openScheduleModal();
+            document.getElementById('schedDay').value = day;
+            document.getElementById('schedStart').value = hour;
+            document.getElementById('schedEnd').value = Math.min(hour + 1, 24);
+          };
+          grid.appendChild(cell);
+        }
+      }
+    }
+
+    // Render Event Blocks using pure Tailwind/CSS classes for positioning
+    function renderTimetable() {
+      const container = document.getElementById('eventsContainer');
+      container.innerHTML = '';
+
+      schedules.forEach(item => {
+        const block = document.createElement('div');
+        block.className = `event-block ${item.colorClass}`;
+        
+        // Exact pixel positioning converted to CSS Tailwind utility classes
+        const leftPx = Math.round(item.day * (675 / 7)) + 2;
+        const topPx = (item.start - 8) * 32 + 2;
+        const widthPx = Math.round(675 / 7) - 4;
+        const heightPx = (item.end - item.start) * 32 - 2;
+
+        block.classList.add(`left-[${leftPx}px]`, `top-[${topPx}px]`, `w-[${widthPx}px]`, `h-[${heightPx}px]`);
+        block.innerText = item.course;
+
+        block.onclick = (e) => {
+          e.stopPropagation();
+          editSchedule(item);
+        };
+
+        container.appendChild(block);
+      });
+    }
+
+    // Render To-do List with Dynamic Accent Colors
+    function renderSubjectsAndTasks() {
+      const container = document.getElementById('subjectsContainer');
+      container.innerHTML = '';
+
+      subjects.forEach(subj => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'rounded-lg overflow-hidden border border-gray-200 bg-gray-50 shadow-sm';
+
+        const header = document.createElement('div');
+        header.className = 'flex items-center justify-between p-3 bg-[#ececec] cursor-pointer hover:bg-gray-200 transition-colors';
+        header.onclick = () => toggleSubjectExpand(subj.id);
+
+        header.innerHTML = `
+          <div class="flex items-center gap-3">
+            <span class="w-3 h-8 rounded-sm shadow-inner ${subj.colorClass}"></span>
+            <span class="font-extrabold text-xl tracking-wide">${subj.name}</span>
+          </div>
+          <span class="text-xs text-gray-600">${subj.expanded ? '▲' : '▼'}</span>
+        `;
+
+        wrapper.appendChild(header);
+
+        if (subj.expanded) {
+          const taskList = document.createElement('ul');
+          taskList.className = 'p-3 pt-2 space-y-2 bg-white';
+
+          const subjTasks = tasks.filter(t => t.subjectId === subj.id);
+          if (subjTasks.length === 0) {
+            taskList.innerHTML = `<li class="text-xs text-gray-400 italic pl-2">No tasks added yet</li>`;
+          } else {
+            subjTasks.forEach(task => {
+              const li = document.createElement('li');
+              li.className = 'flex items-center justify-between text-sm py-1 border-b border-gray-100 last:border-0';
+              li.innerHTML = `
+                <div class="flex items-center gap-2">
+                  <input type="checkbox" ${task.completed ? 'checked' : ''} onchange="toggleTaskStatus(${task.id})" class="w-4 h-4 text-red-600 rounded cursor-pointer">
+                  <span class="${task.completed ? 'line-through text-gray-400' : 'text-gray-800 font-medium'}">${task.title}</span>
+                </div>
+                <span class="text-xs text-gray-500 font-semibold">Until ${formatDate(task.dueDate)}</span>
+              `;
+              taskList.appendChild(li);
+            });
+          }
+          wrapper.appendChild(taskList);
+        }
+
+        container.appendChild(wrapper);
+      });
+    }
+
+    function toggleSubjectExpand(id) {
+      const subj = subjects.find(s => s.id === id);
+      if (subj) {
+        subj.expanded = !subj.expanded;
+        renderSubjectsAndTasks();
+      }
+    }
+
+    function toggleTaskStatus(taskId) {
+      const task = tasks.find(t => t.id === taskId);
+      if (task) {
+        task.completed = !task.completed;
+        renderSubjectsAndTasks();
+        renderDueSoon();
+      }
+    }
+
+    // Render Due Soon Section
+    function renderDueSoon() {
+      const container = document.getElementById('dueSoonList');
+      container.innerHTML = '';
+
+      const activeTasks = tasks.filter(t => !t.completed);
+      const grouped = {};
+      activeTasks.forEach(t => {
+        if (!grouped[t.dueDate]) grouped[t.dueDate] = [];
+        grouped[t.dueDate].push(t);
+      });
+
+      const sortedDates = Object.keys(grouped).sort();
+
+      if (sortedDates.length === 0) {
+        container.innerHTML = `<p class="text-sm text-gray-400 italic">No upcoming due dates!</p>`;
+        return;
+      }
+
+      sortedDates.forEach(date => {
+        const dateBlock = document.createElement('div');
+        dateBlock.className = 'border-b border-gray-300 pb-2';
+
+        const dateHeader = document.createElement('h4');
+        dateHeader.className = 'font-extrabold text-base text-black mb-1';
+        dateHeader.innerText = formatDate(date);
+        dateBlock.appendChild(dateHeader);
+
+        grouped[date].forEach(t => {
+          const subj = subjects.find(s => s.id === t.subjectId);
+          const subjName = subj ? subj.name : '';
+          const colorClass = subj ? subj.colorClass : 'color-teal';
+
+          const item = document.createElement('div');
+          item.className = 'flex items-center gap-2 text-sm text-gray-800 pl-2 py-0.5';
+          item.innerHTML = `
+            <span class="w-2.5 h-2.5 rounded-full border border-black ${colorClass}"></span>
+            <span><strong>${subjName}</strong> - ${t.title}</span>
+          `;
+          dateBlock.appendChild(item);
+        });
+
+        container.appendChild(dateBlock);
+      });
+    }
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      const d = new Date(dateStr);
+      const months = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'];
+      return `${months[d.getMonth()]} ${d.getDate()}`;
+    }
+
+    // Modal Operations
+    function openScheduleModal() {
+      document.getElementById('schedId').value = '';
+      document.getElementById('scheduleForm').reset();
+      document.getElementById('scheduleModalTitle').innerText = translations[currentLang].modal_add_sched;
+      document.getElementById('btnDeleteSchedule').classList.add('hidden');
+      document.getElementById('scheduleModal').classList.remove('hidden');
+    }
+
+    function editSchedule(item) {
+      document.getElementById('schedId').value = item.id;
+      document.getElementById('schedCourse').value = item.course;
+      document.getElementById('schedDay').value = item.day;
+      document.getElementById('schedStart').value = item.start;
+      document.getElementById('schedEnd').value = item.end;
+      document.getElementById('schedColor').value = item.colorClass;
+      document.getElementById('scheduleModalTitle').innerText = 'Edit Schedule';
+      document.getElementById('btnDeleteSchedule').classList.remove('hidden');
+      document.getElementById('scheduleModal').classList.remove('hidden');
+    }
+
+    function closeScheduleModal() {
+      document.getElementById('scheduleModal').classList.add('hidden');
+    }
+
+    function saveSchedule(e) {
+      e.preventDefault();
+      const id = document.getElementById('schedId').value;
+      const course = document.getElementById('schedCourse').value.toUpperCase();
+      const day = parseInt(document.getElementById('schedDay').value);
+      const start = parseInt(document.getElementById('schedStart').value);
+      const end = parseInt(document.getElementById('schedEnd').value);
+      const colorClass = document.getElementById('schedColor').value;
+
+      if (start >= end) {
+        alert("End hour must be greater than start hour!");
+        return;
+      }
+
+      if (id) {
+        const item = schedules.find(s => s.id == id);
+        if (item) {
+          item.course = course;
+          item.day = day;
+          item.start = start;
+          item.end = end;
+          item.colorClass = colorClass;
+        }
+      } else {
+        schedules.push({ id: Date.now(), course, day, start, end, colorClass });
+      }
+
+      renderTimetable();
+      closeScheduleModal();
+    }
+
+    function deleteSchedule() {
+      const id = document.getElementById('schedId').value;
+      if (id) {
+        schedules = schedules.filter(s => s.id != id);
+        renderTimetable();
+        closeScheduleModal();
+      }
+    }
+
+    function openTaskModal() {
+      const select = document.getElementById('taskSubjectSelect');
+      select.innerHTML = '';
+      subjects.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s.id;
+        opt.innerText = s.name;
+        select.appendChild(opt);
+      });
+      document.getElementById('taskModal').classList.remove('hidden');
+    }
+
+    function closeTaskModal() {
+      document.getElementById('taskModal').classList.add('hidden');
+    }
+
+    function saveTask(e) {
+      e.preventDefault();
+      const subjectId = document.getElementById('taskSubjectSelect').value;
+      const title = document.getElementById('taskTitle').value;
+      const dueDate = document.getElementById('taskDueDate').value;
+
+      tasks.push({
+        id: Date.now(),
+        subjectId,
+        title,
+        dueDate,
+        completed: false
+      });
+
+      renderSubjectsAndTasks();
+      renderDueSoon();
+      closeTaskModal();
+    }
+
+    function openSubjectModal() {
+      document.getElementById('subjectModal').classList.remove('hidden');
+    }
+
+    function closeSubjectModal() {
+      document.getElementById('subjectModal').classList.add('hidden');
+    }
+
+    function saveSubject(e) {
+      e.preventDefault();
+      const name = document.getElementById('subjName').value.toUpperCase();
+      const colorClass = document.getElementById('subjColorClass').value;
+      const id = name.toLowerCase().replace(/\s+/g, '');
+
+      if (!subjects.some(s => s.id === id)) {
+        subjects.push({ id, name, colorClass, expanded: true });
+        renderSubjectsAndTasks();
+      }
+
+      closeSubjectModal();
+    }
+  </script>
+</body>
+</html>
