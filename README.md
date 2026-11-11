@@ -1,5 +1,5 @@
-# student-task-planner-beta1
 # TTU Student Planner
+# student-task-planner-beta1
 
 ## Team Name/Number: [Beta 1]
 
@@ -7,11 +7,11 @@
 
 ## Team Members
 
-- Mercy Oderinde - [@agahram](https://github.com/agahram)
-- Yeeun Yang - [@Ismail1809](https://github.com/Ismail1809)
-- Erika Gibson - [@Frankie813](https://github.com/Frankie813)
-- Ariana Reyes - [@borgerburger1](https://github.com/borgerburger1)
-- Noah Dove - 
+- Mercy Oderinde - [@oyin-beep](https://github.com/oyin-beep)
+- Yeeun Yang - [@Yeeun-Yang713](https://github.com/Yeeun-Yang713)
+- Erika Gibson - [@engibs2006](https://github.com/engibs2006)
+- Ariana Reyes - [@arianacreyes](https://github.com/arianacreyes)
+- Noah Dove - [@NoJayDove](https://github.com/NoJayDove)
 
 ---
 
