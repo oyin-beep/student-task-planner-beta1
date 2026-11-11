@@ -2,16 +2,17 @@
 This project is a university-focused calendar and planning system that helps students manage classes, exams, campus activities, and study groups by Mercy Oderinde, Yeeun Yang, Erika Gibson, Ariana Reyes and Noah Dove.
 # TTU Student Planner
 
-## Team Name/Number: [Enter Team Name/Number]
+## Team Name/Number: [Beta 1]
 
 ---
 
 ## Team Members
 
-- Amina Gahramanova - [@agahram](https://github.com/agahram)
-- Ismayil Ismayilzada - [@Ismail1809](https://github.com/Ismail1809)
-- Frankie Wiczarski - [@Frankie813](https://github.com/Frankie813)
-- William Nowell - [@borgerburger1](https://github.com/borgerburger1)
+- Mercy Oderinde - [@agahram](https://github.com/agahram)
+- Yeeun Yang - [@Ismail1809](https://github.com/Ismail1809)
+- Erika Gibson - [@Frankie813](https://github.com/Frankie813)
+- Ariana Reyes - [@borgerburger1](https://github.com/borgerburger1)
+- Noah Dove - 
 
 ---
 
@@ -19,7 +20,7 @@ This project is a university-focused calendar and planning system that helps stu
 
 ## App Overview
 
-| Field | Your Answer |
+| Field | Answer |
 |---|---|
 | **App Name** | TTU Student Planner |
 | **App Type** | A calendar, schedule builder, map, and event planner designed for Texas Tech University students. |
