@@ -8,7 +8,7 @@
 ## Team Members
 
 - Mercy Oderinde - [@oyin-beep](https://github.com/oyin-beep)
-- Yeeun Yang - [@Yeeun-Yang713](https://github.com/Yeeun-Yang713)
+- Yeeun Yang - [@Yeeun-Yang716](https://github.com/Yeeun-Yang716)
 - Erika Gibson - [@engibs2006](https://github.com/engibs2006)
 - Ariana Reyes - [@arianacreyes](https://github.com/arianacreyes)
 - Noah Dove - [@NoJayDove](https://github.com/NoJayDove)
