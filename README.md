@@ -106,34 +106,37 @@ TTU-Student-Planner/
 
 - **HTML5** – Provides the structure and content of each webpage.
 - **CSS3** – Handles website styling, layouts, Flexbox, Grid, and Media Queries.
-- **JavaScript** – Supports interactive functionality and user interactions.
 - **Git** – Used for version control and tracking code changes.
 - **GitHub** – Used for collaboration, repository management, and sharing code.
-- **GitHub Pages** – Used to host and publish the project website.
 
 ---
 
 ## Individual Contributions
 
-### Amina Gahramanova
+### Mercy Oderinde
 
 - [Describe pages and components implemented.]
 - [Describe styling and interactive features developed.]
 - [List additional contributions.]
 
-### Ismayil Ismayilzada
+### Yeeun Yang
+- [Describe pages and components implemented.]
+- [Describe styling and interactive features developed.]
+- [List additional contributions.]
+
+### Erika Gibson
 
 - [Describe pages and components implemented.]
 - [Describe styling and interactive features developed.]
 - [List additional contributions.]
 
-### Frankie Wiczarski
+### Ariana Reyes
 
 - [Describe pages and components implemented.]
 - [Describe styling and interactive features developed.]
 - [List additional contributions.]
 
-### William Nowell
+### Noah Dove
 
 - [Describe pages and components implemented.]
 - [Describe styling and interactive features developed.]
