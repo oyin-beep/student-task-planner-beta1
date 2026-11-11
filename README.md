@@ -110,30 +110,30 @@ TTU-Student-Planner/
 
 ### Mercy Oderinde
 
-- [Describe pages and components implemented.]
+- [Main, Login, Sign-in page]
 - [Describe styling and interactive features developed.]
 - [List additional contributions.]
 
 ### Yeeun Yang
-- [Describe pages and components implemented.]
+- [Schedule page]
 - [Describe styling and interactive features developed.]
 - [List additional contributions.]
 
 ### Erika Gibson
 
-- [Describe pages and components implemented.]
+- [Events page]
 - [Describe styling and interactive features developed.]
 - [List additional contributions.]
 
 ### Ariana Reyes
 
-- [Describe pages and components implemented.]
+- [Groups page]
 - [Describe styling and interactive features developed.]
 - [List additional contributions.]
 
 ### Noah Dove
 
-- [Describe pages and components implemented.]
+- [Maps page]
 - [Describe styling and interactive features developed.]
 - [List additional contributions.]
 
