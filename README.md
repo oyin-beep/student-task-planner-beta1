@@ -1,5 +1,4 @@
 # TTU Student Planner
-# student-task-planner-beta1
 
 ## Team Name/Number: [Beta 1]
 
@@ -110,30 +109,30 @@ TTU-Student-Planner/
 
 ### Mercy Oderinde
 
-- [Main, Login, Sign-in page]
+- Main, Login, Sign-in page
 - [Describe styling and interactive features developed.]
 - [List additional contributions.]
 
 ### Yeeun Yang
-- [Schedule page]
+- Schedule page
 - [Describe styling and interactive features developed.]
 - [List additional contributions.]
 
 ### Erika Gibson
 
-- [Events page]
+- Events page
 - [Describe styling and interactive features developed.]
 - [List additional contributions.]
 
 ### Ariana Reyes
 
-- [Groups page]
+- Groups page
 - [Describe styling and interactive features developed.]
 - [List additional contributions.]
 
 ### Noah Dove
 
-- [Maps page]
+- Maps page
 - [Describe styling and interactive features developed.]
 - [List additional contributions.]
 
