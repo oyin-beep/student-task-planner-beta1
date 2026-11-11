@@ -56,11 +56,6 @@ Our project is divided into multiple HTML files, an external CSS stylesheet, and
 
 Each team member will include an HTML comment at the top of their assigned HTML file identifying their work.
 
-Example:
-
-```html
-<!-- Created by: Your Name -->
-```
 
 ## Table 2: File Structure
 
