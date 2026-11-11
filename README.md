@@ -1,5 +1,4 @@
 # student-task-planner-beta1
-This project is a university-focused calendar and planning system that helps students manage classes, exams, campus activities, and study groups by Mercy Oderinde, Yeeun Yang, Erika Gibson, Ariana Reyes and Noah Dove.
 # TTU Student Planner
 
 ## Team Name/Number: [Beta 1]
@@ -23,7 +22,7 @@ This project is a university-focused calendar and planning system that helps stu
 | Field | Answer |
 |---|---|
 | **App Name** | TTU Student Planner |
-| **App Type** | A calendar, schedule builder, map, and event planner designed for Texas Tech University students. |
+| **App Type** | A calendar, schedule builder, map, groups and event planner designed for Texas Tech University students. |
 | **Problem It Solves** | College students have numerous events, assignments, classes, and other commitments to keep track of. Managing all these responsibilities across different platforms can be difficult. Our app aims to bring these commitments together into one centralized platform that helps students organize their academic and social lives. Our target users are Texas Tech University students. |
 
 ## Pages and Descriptions
