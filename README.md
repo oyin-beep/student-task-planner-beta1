@@ -110,30 +110,32 @@ TTU-Student-Planner/
 ### Mercy Oderinde
 
 - Main, Login, Sign-in page
-- [Describe styling and interactive features developed.]
-- [List additional contributions.]
+- Developed and designed the Main, Login, and Sign-in pages, including their HTML structure, navigation, forms, and overall styling.
+- Implemented interactive elements such as login and registration forms, navigation links, and user input fields.
+
+
 
 ### Yeeun Yang
 - Schedule page
-- [Describe styling and interactive features developed.]
-- [List additional contributions.]
+- Developed and designed the Schedule page, including the weekly timetable, subject organization, and class information layout.
+- Implemented schedule management features such as adding schedules and subjects, changing subject colors, and creating to-do tasks.
 
 ### Erika Gibson
 
 - Events page
-- [Describe styling and interactive features developed.]
-- [List additional contributions.]
+- Developed and designed the Events page, organizing sporting events, student activities, and university holidays into accessible sections.
+- Implemented scrollable event sections that allow students to browse upcoming events and plan their activities.
 
 ### Ariana Reyes
 
 - Groups page
-- [Describe styling and interactive features developed.]
-- [List additional contributions.]
+- Developed and designed the Groups and Connections page, organizing student organizations and study groups into categories.
+- Created interactive sections that allow students to explore different communities and discover opportunities to connect with other students.
 
 ### Noah Dove
 
 - Maps page
-- [Describe styling and interactive features developed.]
-- [List additional contributions.]
+- Developed and designed the Maps page, integrating an embedded Google Map to display Texas Tech campus locations.
+- Incorporated map features such as zooming, dragging, and location pins to help students explore and navigate campus.
 
 ---
