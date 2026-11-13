@@ -36,6 +36,7 @@ header img {
 header h1 {
     color: white;
     text-align: center;
+    font-family: 'Iosevka Charon', sans-serif;
     font-size: 50px;
     letter-spacing: 2px;
 }
@@ -52,6 +53,7 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
+    font-family: 'Iosevka Charon', sans-serif;
     font-size: 16px;
     font-weight: bold;
 }
@@ -69,6 +71,7 @@ nav a:hover {
 
 .intro h2 {
     font-size: 38px;
+    font-family: 'Iosevka Charon', sans-serif;
     margin-bottom: 15px;
 }
 
@@ -106,6 +109,7 @@ nav a:hover {
 .info-card h3,
 .event-card h3 {
     font-size: 22px;
+    font-family: 'Iosevka Charon', sans-serif;
     margin-bottom: 12px;
 }
 
@@ -137,6 +141,7 @@ nav a:hover {
 
 .section-description {
     margin-bottom: 20px;
+    font-family: 'Iosevka Charon', sans-serif;
     font-size: 17px;
 }
 
