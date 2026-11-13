@@ -66,8 +66,9 @@ Each team member will include an HTML comment at the top of their assigned HTML 
 | `student-info.html` | User information and profile page (Page 4). |
 | `groups.html` | Groups and connections page (Page 5). |
 | `schedule.html` | Weekly class schedule and schedule management (Page 6). |
-| `events.html` | Sporting events, student events, and holidays (Page 7). |
-| `maps.html` | Embedded campus map and location pins (Page 8). |
+| `schedule.html` | Weekly class schedule and schedule management (Page 7). |
+| `connections.html` | Sporting connections, Major connections, and clubs and groups connections (Page 8). |
+| `maps.html` | Embedded campus map and location pins (Page 9). |
 | `css/styles.css` | All website styling, including layouts, colors, typography, Flexbox, Grid, and responsive design. This must be an external stylesheet. |
 | `images/` | Folder containing all image, logo, and icon assets used throughout the project. |
 | `README.md` | Project documentation, proposal, file structure, technologies, and individual team contributions. |
@@ -83,6 +84,7 @@ TTU-Student-Planner/
 ├── student-info.html
 ├── groups.html
 ├── schedule.html
+├── connections.html
 ├── events.html
 ├── maps.html
 │
@@ -114,7 +116,6 @@ TTU-Student-Planner/
 - Implemented interactive elements such as login and registration forms, navigation links, and user input fields.
 
 
-
 ### Yeeun Yang
 - Schedule page
 - Developed and designed the page, including the weekly timetable, subject organization, and class information layout.
@@ -128,7 +129,7 @@ TTU-Student-Planner/
 
 ### Ariana Reyes
 
-- Groups page
+- Groups, Connections page
 - Developed and designed the page, organizing student organizations and study groups into categories.
 - Created interactive sections that allow students to explore different communities and discover opportunities to connect with other students.
 
