@@ -1,152 +1,155 @@
+/* SAMPLE STUDENT PROFILES */
 
-// CONNECTIONS PAGE JAVASCRIPT
+const sampleStudents = [
+    {
+        name: "Alex",
+        major: "Computer Science",
+        year: "Freshman",
+        clubs: ["NSBE", "ANIME"]
+    },
+    {
+        name: "Jordan",
+        major: "Engineering",
+        year: "Sophomore",
+        clubs: ["SWE", "POWER LIFTING"]
+    },
+    {
+        name: "Taylor",
+        major: "Business",
+        year: "Junior",
+        clubs: ["ANIME"]
+    },
+    {
+        name: "Morgan",
+        major: "Computer Science",
+        year: "Senior",
+        clubs: ["NSBE", "SWE"]
+    },
+    {
+        name: "Riley",
+        major: "Biology",
+        year: "Freshman",
+        clubs: ["POWER LIFTING"]
+    },
+    {
+        name: "Casey",
+        major: "Engineering",
+        year: "Junior",
+        clubs: ["NSBE", "SWE"]
+    }
+];
 
-// SEARCH FUNCTION
-const searchInput = document.getElementById("connectionSearch");
-const searchButton = document.getElementById("searchButton");
-const searchMessage = document.getElementById("searchMessage");
+/* COMPARE STUDENT INFORMATION */
 
-function searchConnections() {
+const currentStudent = JSON.parse(
+    localStorage.getItem("studentProfile")
+);
 
-    const searchValue = searchInput.value.toLowerCase().trim();
+const main = document.querySelector("main");
+const clubsSection = document.querySelector("#clubs");
 
-    const cards = document.querySelectorAll(
-        ".category-card, .info-card, .event-card, .tag"
-    );
+const matchSection = document.createElement("section");
+matchSection.className = "content-section";
 
-    let found = 0;
+const heading = document.createElement("h2");
+heading.textContent = "Students You May Connect With";
 
-    cards.forEach(card => {
+matchSection.appendChild(heading);
 
-        const text = card.textContent.toLowerCase();
+const description = document.createElement("p");
+description.className = "section-description";
+description.textContent = "Find students who share your major, class year, or clubs.";
 
-        if (text.includes(searchValue)) {
-            card.style.display = "";
-            found++;
-        } else {
-            card.style.display = "none";
+matchSection.appendChild(description);
+
+const matchContainer = document.createElement("div");
+matchContainer.className = "item-container";
+
+matchSection.appendChild(matchContainer);
+
+if (!currentStudent) {
+    const message = document.createElement("p");
+    message.textContent = "Please complete your User Information page first.";
+    matchContainer.appendChild(message);
+
+} else {
+
+    const matches = sampleStudents.map(function(student) {
+
+        let score = 0;
+        const reasons = [];
+
+        if (student.major.toLowerCase() === currentStudent.major.toLowerCase()) {
+            score += 3;
+            reasons.push("Same major");
         }
+
+        if (student.year === currentStudent.year) {
+            score += 1;
+            reasons.push("Same class year");
+        }
+
+        const sharedClubs = student.clubs.filter(function(club) {
+            return currentStudent.clubs.includes(club);
+        });
+
+        if (sharedClubs.length > 0) {
+            score += sharedClubs.length * 2;
+            reasons.push("Shared clubs: " + sharedClubs.join(", "));
+        }
+
+        return {
+            ...student,
+            score: score,
+            reasons: reasons
+        };
 
     });
 
-    if (searchValue === "") {
-        cards.forEach(card => card.style.display = "");
-        searchMessage.textContent = "";
-    } else if (found > 0) {
-        searchMessage.textContent = found + " results found!";
-    } else {
-        searchMessage.textContent = "No connections found.";
+    const sortedMatches = matches
+        .filter(function(student) {
+            return student.score > 0;
+        })
+        .sort(function(a, b) {
+            return b.score - a.score;
+        });
+
+    if (sortedMatches.length === 0) {
+        const message = document.createElement("p");
+        message.textContent = "No matches found yet. Try updating your major or clubs!";
+        matchContainer.appendChild(message);
     }
+
+    sortedMatches.forEach(function(student) {
+
+        const card = document.createElement("div");
+        card.className = "info-card";
+
+        const name = document.createElement("h3");
+        name.textContent = student.name;
+
+        const major = document.createElement("p");
+        major.textContent = "Major: " + student.major;
+
+        const year = document.createElement("p");
+        year.textContent = "Class Year: " + student.year;
+
+        const clubs = document.createElement("p");
+        clubs.textContent = "Clubs: " + student.clubs.join(", ");
+
+        const reasons = document.createElement("p");
+        reasons.textContent = "Why you match: " + student.reasons.join(" • ");
+
+        card.appendChild(name);
+        card.appendChild(major);
+        card.appendChild(year);
+        card.appendChild(clubs);
+        card.appendChild(reasons);
+
+        matchContainer.appendChild(card);
+    });
 }
 
-searchButton.addEventListener("click", searchConnections);
+/* ADD MATCHES TO THE EXISTING PAGE */
 
-searchInput.addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-        searchConnections();
-    }
-});
-
-
-// CLICKABLE MAJOR TAGS
-const majorTags = document.querySelectorAll(".tag");
-
-majorTags.forEach(tag => {
-
-    tag.style.cursor = "pointer";
-
-    tag.addEventListener("click", function() {
-
-        const major = this.textContent;
-
-        alert(
-            "You selected " + major +
-            "! Find students who share this major."
-        );
-
-    });
-
-});
-
-
-// CLICKABLE CLUB CARDS
-const clubCards = document.querySelectorAll("#clubs .info-card");
-
-clubCards.forEach(card => {
-
-    card.style.cursor = "pointer";
-
-    card.addEventListener("click", function() {
-
-        const clubName = this.querySelector("h3").textContent;
-
-        alert(
-            "Explore " + clubName +
-            " and discover student organizations!"
-        );
-
-    });
-
-});
-
-
-// CLICKABLE CLASS YEAR CARDS
-const yearCards = document.querySelectorAll("#class-year .info-card");
-
-yearCards.forEach(card => {
-
-    card.style.cursor = "pointer";
-
-    card.addEventListener("click", function() {
-
-        const classYear = this.querySelector("h3").textContent;
-
-        alert(
-            "You selected " + classYear +
-            "! Find other students in your class year."
-        );
-
-    });
-
-});
-
-
-// CLICKABLE CAMPUS EVENTS
-const eventCards = document.querySelectorAll(".event-card");
-
-eventCards.forEach(card => {
-
-    card.style.cursor = "pointer";
-
-    card.addEventListener("click", function() {
-
-        const eventName = this.querySelector("h3").textContent;
-
-        alert(
-            "You selected " + eventName +
-            "! Check out opportunities to meet other students."
-        );
-
-    });
-
-});
-
-
-// EXPLORE BUTTONS
-const exploreLinks = document.querySelectorAll(".card-link");
-
-exploreLinks.forEach(link => {
-
-    link.addEventListener("click", function() {
-
-        const section = document.querySelector(this.getAttribute("href"));
-
-        if (section) {
-            section.scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-
-    });
-
-});
+main.insertBefore(matchSection, clubsSection);
