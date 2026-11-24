@@ -1,0 +1,700 @@
+
+/* =========================================
+   TELEPORTHQ THEME VARIABLES
+========================================= */
+
+:root {
+  --dl-layout-size-large: 144px;
+  --dl-layout-size-small: 48px;
+  --dl-layout-space-unit: 16px;
+  --dl-layout-size-medium: 96px;
+  --dl-layout-size-xlarge: 192px;
+  --dl-layout-size-xsmall: 16px;
+  --dl-color-theme-accent1: #FFFFFF;
+  --dl-color-theme-accent2: #F5D1B0;
+  --dl-layout-radius-round: 50%;
+  --dl-layout-size-xxlarge: 288px;
+  --dl-color-theme-primary1: #BF4408;
+  --dl-color-theme-primary2: #E65103;
+  --dl-layout-size-maxwidth: 1400px;
+  --dl-layout-radius-radius2: 2px;
+  --dl-layout-radius-radius4: 4px;
+  --dl-layout-radius-radius8: 8px;
+  --dl-layout-space-halfunit: 8px;
+  --dl-layout-space-sixunits: 96px;
+  --dl-layout-space-twounits: 32px;
+  --dl-color-theme-secondary1: #FFFFFF;
+  --dl-color-theme-secondary2: #FBF1EB;
+  --dl-layout-space-fiveunits: 80px;
+  --dl-layout-space-fourunits: 64px;
+  --dl-layout-space-threeunits: 48px;
+  --dl-color-theme-neutral-dark: #191818;
+  --dl-layout-radius-cardradius: 8px;
+  --dl-color-theme-neutral-light: #FBFAF9;
+  --dl-layout-radius-imageradius: 8px;
+  --dl-layout-radius-inputradius: 24px;
+  --dl-layout-radius-buttonradius: 24px;
+  --dl-layout-space-oneandhalfunits: 24px;
+}
+
+.teleport-show {
+  display: flex !important;
+  transform: none !important;
+}
+
+.Content {
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 1.15;
+  text-transform: none;
+  text-decoration: none;
+}
+
+
+/* =========================================
+   MAIN PAGE CONTAINER
+========================================= */
+
+.group45-container1 {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+
+.group45-thq-group45-elm {
+  width: 1280px;
+  height: 832px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-shrink: 1;
+  justify-content: center;
+}
+
+.group45-thq-erika-elm {
+  left: 0px;
+  width: 1280px;
+  bottom: -41px;
+  height: 832px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+
+/* =========================================
+   NAVIGATION BAR
+========================================= */
+
+/* HEADER */
+header {
+    background-color: #ed0800;
+    height: 135px;
+    width: 100%;
+    position: relative;
+    padding-top: 10px;
+}
+/* SEARCH BAR */
+.search-bar {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    display: flex;
+    gap: 8px;
+}
+
+.search-bar input {
+    padding: 10px 12px;
+    width: 220px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Iosevka Charon', sans-serif;
+}
+
+.search-bar button {
+    padding: 10px 15px;
+    background-color: #CC0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Iosevka Charon', sans-serif;
+}
+
+/* SMALL LOGO IN TOP-LEFT CORNER */
+header img {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+}
+
+/* CENTERED WEBSITE TITLE */
+header h1 {
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+/* NAVIGATION */
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 65px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Iosevka Charon', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #ffb3b3;
+}
+
+
+/* =========================================
+   TOP EVENT BOXES
+========================================= */
+
+.group45-thq-rectangle28-elm,
+.group45-thq-rectangle29-elm1,
+.group45-thq-rectangle30-elm1 {
+  top: 130px;
+  height: 174px;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 1);
+}
+
+.group45-thq-rectangle28-elm {
+  left: 18px;
+  width: 409px;
+}
+
+.group45-thq-rectangle29-elm1 {
+  left: 427px;
+  width: 423px;
+}
+
+.group45-thq-rectangle30-elm1 {
+  left: 850px;
+  width: 412px;
+}
+
+
+/* =========================================
+   EVENT CATEGORY SECTIONS
+========================================= */
+
+.group45-thq-group35-elm,
+.group45-thq-group36-elm,
+.group45-thq-group37-elm {
+  top: 316px;
+  width: 392.0000305175781px;
+  height: 513px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: #e90802 #f1f1f1;
+}
+
+.group45-thq-group35-elm {
+  left: 35px;
+}
+
+.group45-thq-group36-elm {
+  left: 448px;
+}
+
+.group45-thq-group37-elm {
+  left: 857px;
+}
+
+
+/* =========================================
+   CATEGORY HEADERS
+========================================= */
+
+.group45-thq-frame6-elm1,
+.group45-thq-frame6-elm2,
+.group45-thq-frame6-elm3 {
+  top: 0px;
+  left: 0px;
+  width: calc(100% - 12px);
+  height: 79px;
+  display: flex;
+  overflow: hidden;
+  position: sticky;
+  z-index: 2;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(240, 17, 17, 1);
+}
+
+.group45-thq-text-elm18,
+.group45-thq-text-elm19,
+.group45-thq-text-elm20 {
+  top: 18px;
+  color: rgba(255, 255, 255, 1);
+  height: auto;
+  position: absolute;
+  font-size: 36px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.group45-thq-text-elm18,
+.group45-thq-text-elm20 {
+  left: 59.8544921875px;
+}
+
+.group45-thq-text-elm19 {
+  left: 49.8544921875px;
+}
+
+
+/* =========================================
+   EVENT CARD BACKGROUNDS
+========================================= */
+
+.group45-thq-rectangle29-elm2,
+.group45-thq-rectangle30-elm2,
+.group45-thq-rectangle31-elm1,
+.group45-thq-rectangle32-elm1,
+.group45-thq-rectangle29-elm3,
+.group45-thq-rectangle30-elm3,
+.group45-thq-rectangle31-elm2,
+.group45-thq-rectangle32-elm2,
+.group45-thq-rectangle29-elm4,
+.group45-thq-rectangle30-elm4,
+.group45-thq-rectangle31-elm3,
+.group45-thq-rectangle32-elm3 {
+  left: 0px;
+  width: 392px;
+  height: 109px;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 1);
+}
+
+.group45-thq-rectangle29-elm2,
+.group45-thq-rectangle29-elm3,
+.group45-thq-rectangle29-elm4 {
+  top: 79px;
+}
+
+.group45-thq-rectangle30-elm2,
+.group45-thq-rectangle30-elm3,
+.group45-thq-rectangle30-elm4 {
+  top: 188px;
+}
+
+.group45-thq-rectangle31-elm1,
+.group45-thq-rectangle31-elm2,
+.group45-thq-rectangle31-elm3 {
+  top: 295px;
+}
+
+.group45-thq-rectangle32-elm1,
+.group45-thq-rectangle32-elm2,
+.group45-thq-rectangle32-elm3 {
+  top: 404px;
+}
+
+
+/* Extra event cards */
+
+.group45-thq-category-extra-rectangle {
+  position: absolute;
+  left: 0;
+  width: 392px;
+  height: 109px;
+  background-color: #fff;
+  border: 1px solid #000;
+}
+
+.group45-thq-category-extra-rectangle--5 {
+  top: 513px;
+}
+
+.group45-thq-category-extra-rectangle--6 {
+  top: 622px;
+}
+
+.group45-thq-category-extra-rectangle--7 {
+  top: 731px;
+}
+
+.group45-thq-category-extra-rectangle--8 {
+  top: 840px;
+}
+
+
+/* =========================================
+   SCROLLBARS
+========================================= */
+
+.group45-thq-group35-elm::-webkit-scrollbar,
+.group45-thq-group36-elm::-webkit-scrollbar,
+.group45-thq-group37-elm::-webkit-scrollbar {
+  width: 10px;
+}
+
+.group45-thq-group35-elm::-webkit-scrollbar-track,
+.group45-thq-group36-elm::-webkit-scrollbar-track,
+.group45-thq-group37-elm::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.group45-thq-group35-elm::-webkit-scrollbar-thumb,
+.group45-thq-group36-elm::-webkit-scrollbar-thumb,
+.group45-thq-group37-elm::-webkit-scrollbar-thumb {
+  border: 2px solid #f1f1f1;
+  border-radius: 8px;
+  background: #e90802;
+}
+
+
+/* =========================================
+   EVENT IMAGES
+========================================= */
+
+.group45-thq-images1-elm,
+.group45-thq-images2-elm,
+.group45-thq-images3-elm,
+.group45-thq-tt-ubasketball-williams1-elm,
+.group45-thq-images4-elm,
+.group45-thq-images5-elm,
+.group45-thq-images6-elm,
+.group45-thq-images7-elm,
+.group45-thq-images8-elm,
+.group45-thq-images9-elm,
+.group45-thq-images10-elm,
+.group45-thq-beautifultropicalsunsetscenerytwosunbedsroyaltyfre-elm,
+.group45-thq-images11-elm,
+.group45-thq-images12-elm,
+.group45-thq-images13-elm {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  border: 1px solid rgba(0, 0, 0, 1);
+}
+
+.group45-thq-images1-elm {
+  top: 84px;
+  left: 6px;
+}
+
+.group45-thq-images2-elm {
+  top: 192px;
+  left: 6px;
+}
+
+.group45-thq-images3-elm {
+  top: 300px;
+  left: 6px;
+}
+
+.group45-thq-tt-ubasketball-williams1-elm {
+  top: 409px;
+  left: 6px;
+}
+
+.group45-thq-images4-elm {
+  top: 82px;
+  left: 8px;
+}
+
+.group45-thq-images5-elm {
+  top: 191px;
+  left: 8px;
+}
+
+.group45-thq-images6-elm {
+  top: 409px;
+  left: 8px;
+}
+
+.group45-thq-images7-elm {
+  top: 300px;
+  left: 8px;
+}
+
+.group45-thq-images8-elm {
+  top: 84px;
+  left: 4px;
+}
+
+.group45-thq-images9-elm {
+  top: 191px;
+  left: 4px;
+}
+
+.group45-thq-images10-elm {
+  top: 300px;
+  left: 4px;
+}
+
+.group45-thq-beautifultropicalsunsetscenerytwosunbedsroyaltyfre-elm {
+  top: 409px;
+  left: 4px;
+}
+
+.group45-thq-images11-elm {
+  top: 167px;
+  left: 445px;
+}
+
+.group45-thq-images13-elm {
+  top: 167px;
+  left: 861px;
+}
+
+.group45-thq-images12-elm {
+  top: 167px;
+  left: 35px;
+}
+
+
+/* =========================================
+   EVENT TEXT
+========================================= */
+
+.group45-thq-text-elm21,
+.group45-thq-text-elm22,
+.group45-thq-text-elm23 {
+  top: 147px;
+  color: rgba(241, 17, 17, 1);
+  width: 181px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Bold;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.group45-thq-text-elm21 {
+  left: 158px;
+}
+
+.group45-thq-text-elm22 {
+  left: 583px;
+}
+
+.group45-thq-text-elm23 {
+  left: 1017px;
+}
+
+.group45-thq-text-elm24,
+.group45-thq-text-elm63,
+.group45-thq-text-elm66 {
+  top: 177px;
+  color: rgba(0, 0, 0, 1);
+  width: 259px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.group45-thq-text-elm24 {
+  left: 156px;
+}
+
+.group45-thq-text-elm63 {
+  left: 563px;
+}
+
+.group45-thq-text-elm66 {
+  left: 979px;
+}
+
+.group45-thq-text-elm69 {
+  top: 94px;
+  left: 475px;
+  color: rgba(0, 0, 0, 1);
+  width: 330px;
+  height: auto;
+  position: absolute;
+  font-size: 32px;
+  font-style: Bold;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+
+/* =========================================
+   SPORTING EVENT TEXT CONTAINERS
+========================================= */
+
+.group45-thq-group38-elm,
+.group45-thq-group39-elm,
+.group45-thq-group40-elm {
+  width: 260px;
+  height: 417px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+
+.group45-thq-group38-elm {
+  top: 92px;
+  left: 121px;
+}
+
+.group45-thq-group39-elm {
+  top: 96px;
+  left: 123px;
+}
+
+.group45-thq-group40-elm {
+  top: 96px;
+  left: 113px;
+}
+
+.group45-thq-text-elm27,
+.group45-thq-text-elm30,
+.group45-thq-text-elm33,
+.group45-thq-text-elm36,
+.group45-thq-text-elm39,
+.group45-thq-text-elm42,
+.group45-thq-text-elm45,
+.group45-thq-text-elm48,
+.group45-thq-text-elm51,
+.group45-thq-text-elm54,
+.group45-thq-text-elm57,
+.group45-thq-text-elm60 {
+  color: rgba(0, 0, 0, 1);
+  width: 259px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.group45-thq-text-elm27,
+.group45-thq-text-elm39,
+.group45-thq-text-elm51 {
+  left: 1px;
+}
+
+.group45-thq-text-elm30,
+.group45-thq-text-elm42,
+.group45-thq-text-elm54 {
+  top: 109px;
+  left: 1px;
+}
+
+.group45-thq-text-elm33,
+.group45-thq-text-elm45,
+.group45-thq-text-elm57 {
+  top: 218px;
+}
+
+.group45-thq-text-elm36,
+.group45-thq-text-elm48,
+.group45-thq-text-elm60 {
+  top: 318px;
+}
+
+
+/* =========================================
+   UNIVERSITY IMAGE
+========================================= */
+
+.group45-thq-image3-elm {
+  top: 92px;
+  left: 1251px;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+}
+
+
+/* =========================================
+   TELEPORTHQ FOOTER LINK
+========================================= */
+
+.group45-link {
+  display: contents;
+}
+
+.group45-container2 {
+  right: 50px;
+  border: 1px solid #ffffff5c;
+  bottom: 30px;
+  display: flex;
+  z-index: 22;
+  position: fixed;
+  box-shadow: 5px 5px 10px 0px rgba(31, 31, 31, 0.4);
+  min-height: auto;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  backdrop-filter: blur(6px);
+  background-color: rgba(41, 41, 41, 0.41);
+}
+
+.group45-icon1 {
+  width: 24px;
+  margin-right: 4px;
+}
+
+.group45-text40 {
+  color: white;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
