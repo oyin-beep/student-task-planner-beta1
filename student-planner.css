@@ -1,4 +1,3 @@
-
 /* GENERAL PAGE STYLING */
 * {
     margin: 0;
@@ -165,4 +164,13 @@ main {
     text-align: right;
     vertical-align: top;
     padding: 10px;
+}
+.calendar-event {
+    background-color: #ed0800;
+    color: white;
+    padding: 5px;
+    margin-top: 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    overflow-wrap: anywhere;
 }
