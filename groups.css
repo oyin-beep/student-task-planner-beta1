@@ -1,7 +1,5 @@
 
-/* =================================
-   GENERAL PAGE STYLING
-================================= */
+/* GENERAL PAGE STYLING */
 
 * {
     margin: 0;
@@ -21,9 +19,7 @@ body {
     border: 5px solid black;
 }
 
-/* =================================
-   HEADER
-================================= */
+/*  HEADER */
 
 header {
     background-color: #ed0800;
@@ -50,9 +46,7 @@ header h1 {
     margin: 0;
 }
 
-/* =================================
-   NAVIGATION
-================================= */
+/*  NAVIGATION */
 
 nav {
     display: flex;
@@ -77,9 +71,7 @@ nav a:hover {
     color: #ffb3b3;
 }
 
-/* =================================
-   MAIN CONTENT
-================================= */
+/* MAIN CONTENT */
 
 main {
     max-width: 1250px;
@@ -87,9 +79,7 @@ main {
     padding: 40px 30px;
 }
 
-/* =================================
-   SECTION HEADINGS
-================================= */
+/* SECTION HEADINGS */
 
 .frame,
 .div-wrapper {
@@ -111,9 +101,7 @@ main {
     text-align: center;
 }
 
-/* =================================
-   STUDY GROUPS AND ACADEMIC SUBJECTS
-================================= */
+/* STUDY GROUPS AND ACADEMIC SUBJECTS */
 
 .frame-2 {
     display: grid;
@@ -132,9 +120,7 @@ main {
     border-radius: 4px;
 }
 
-/* =================================
-   ORGANIZATIONS AND CLUBS
-================================= */
+/* ORGANIZATIONS AND CLUBS */
 
 .frame-3,
 .frame-4 {
@@ -156,9 +142,7 @@ main {
     border-radius: 4px;
 }
 
-/* =================================
-   FOOTER
-================================= */
+/* FOOTER */
 
 footer {
     background-color: #ed0800;
@@ -168,9 +152,7 @@ footer {
     margin-top: 40px;
 }
 
-/* =================================
-   TABLET SCREENS
-================================= */
+/* TABLET SCREENS */
 
 @media screen and (max-width: 768px) {
 
@@ -209,9 +191,7 @@ footer {
     }
 }
 
-/* =================================
-   MOBILE SCREENS
-================================= */
+/* MOBILE SCREENS */
 
 @media screen and (max-width: 480px) {
 
