@@ -71,7 +71,7 @@ nav a:hover {
 
 .intro h2 {
     font-size: 38px;
-    font-family: 'Iosevka Charon', sans-serif;
+    font-family: 'Arial', sans-serif;
     margin-bottom: 15px;
 }
 
@@ -109,7 +109,7 @@ nav a:hover {
 .info-card h3,
 .event-card h3 {
     font-size: 22px;
-    font-family: 'Iosevka Charon', sans-serif;
+    font-family: 'Arial', sans-serif;
     margin-bottom: 12px;
 }
 
@@ -141,7 +141,7 @@ nav a:hover {
 
 .section-description {
     margin-bottom: 20px;
-    font-family: 'Iosevka Charon', sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 17px;
 }
 

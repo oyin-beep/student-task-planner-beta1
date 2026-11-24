@@ -5,32 +5,86 @@
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    
     background-color: white;
 }
 
 
-.navbar {
+header {
+    background-color: #ed0800;
+    height: 135px;
+    width: 100%;
+    position: relative;
+    padding-top: 10px;
+}
+
+/* SMALL LOGO IN TOP-LEFT CORNER */
+header img {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+}
+
+/* CENTERED WEBSITE TITLE */
+header h1 {
+    color: white;
+    text-align: center;
+    font-family: 'Iosevka Charon', sans-serif;
+    font-size: 50px;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+/* NAVIGATION */
+nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #ed0800;
-    min-height: 65px;
+    height: 65px;
+    width: 100%;
+    margin-top: 5px;
 }
 
-.navbar a {
+nav a {
     color: white;
     text-decoration: none;
+    font-family: 'Iosevka Charon', sans-serif;
     font-size: 16px;
     font-weight: bold;
-    padding: 22px 12px;
 }
 
-.navbar a:hover,
-.navbar a:focus-visible {
-    background-color: #ba0600;
+nav a:hover {
+    text-decoration: underline;
+    color: #ffb3b3;
 }
 
+header th {
+    padding: 15px 10px;
+    color: white;
+    font-family: 'Iosevka Charon', sans-serif;
+    font-size: 15px;
+    border: none;
+}
+
+header th a {
+    color: white;
+    text-decoration: none;
+}
+
+header th a:hover {
+    text-decoration: underline;
+}
+
+/* HORIZONTAL DIVIDERS */
+hr {
+    border: none;
+    height: 2px;
+    background-color: #eeeeee;
+    margin: 15px 0;
+}
 
 .map-container {
     position: relative;
@@ -67,6 +121,7 @@ body {
     padding: 8px 12px;
     font-size: 22px;
     font-weight: bold;
+    font-family: Arial, sans-serif;
     text-align: left;
     cursor: pointer;
 }
