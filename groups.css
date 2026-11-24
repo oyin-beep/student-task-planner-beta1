@@ -1,0 +1,253 @@
+
+/* =================================
+   GENERAL PAGE STYLING
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Iosevka Charon', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: white;
+    color: black;
+    min-height: 100vh;
+    border: 5px solid black;
+}
+
+/* =================================
+   HEADER
+================================= */
+
+header {
+    background-color: #ed0800;
+    min-height: 135px;
+    width: 100%;
+    position: relative;
+    padding: 10px 15px;
+}
+
+header img {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+}
+
+header h1 {
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+/* =================================
+   NAVIGATION
+================================= */
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 65px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #ffb3b3;
+}
+
+/* =================================
+   MAIN CONTENT
+================================= */
+
+main {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 40px 30px;
+}
+
+/* =================================
+   SECTION HEADINGS
+================================= */
+
+.frame,
+.div-wrapper {
+    background-color: #ed0800;
+    color: white;
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    margin: 35px 0 20px;
+    border-radius: 4px;
+}
+
+.text-wrapper-6,
+.text-wrapper-7 {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* =================================
+   STUDY GROUPS AND ACADEMIC SUBJECTS
+================================= */
+
+.frame-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 10px 20px;
+}
+
+.frame-2 div {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-left: 5px solid #ed0800;
+    padding: 20px;
+    font-size: 18px;
+    line-height: 1.5;
+    border-radius: 4px;
+}
+
+/* =================================
+   ORGANIZATIONS AND CLUBS
+================================= */
+
+.frame-3,
+.frame-4 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 10px 20px;
+}
+
+.frame-3 div,
+.frame-4 div,
+.frame-4 p {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-left: 5px solid #ed0800;
+    padding: 18px;
+    font-size: 18px;
+    line-height: 1.5;
+    border-radius: 4px;
+}
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+    background-color: #ed0800;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* =================================
+   TABLET SCREENS
+================================= */
+
+@media screen and (max-width: 768px) {
+
+    header h1 {
+        font-size: 32px;
+        padding-top: 10px;
+    }
+
+    header img {
+        width: 50px;
+        height: 50px;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    main {
+        padding: 25px 15px;
+    }
+
+    .text-wrapper-6,
+    .text-wrapper-7 {
+        font-size: 25px;
+    }
+
+    .frame-2,
+    .frame-3,
+    .frame-4 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =================================
+   MOBILE SCREENS
+================================= */
+
+@media screen and (max-width: 480px) {
+
+    header {
+        padding: 15px 10px;
+    }
+
+    header h1 {
+        font-size: 23px;
+        padding-top: 5px;
+    }
+
+    header img {
+        width: 40px;
+        height: 40px;
+        left: 8px;
+    }
+
+    nav {
+        gap: 12px;
+        padding: 10px 0;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .text-wrapper-6,
+    .text-wrapper-7 {
+        font-size: 22px;
+    }
+
+    .frame-2 div,
+    .frame-3 div,
+    .frame-4 div,
+    .frame-4 p {
+        font-size: 16px;
+    }
+}
